@@ -1,0 +1,787 @@
+fileFormatVersion: 2
+guid: 279f2f462b7028849899a4ea03c5a8fb
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Drawer Body
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 1807
+        width: 826
+        height: 219
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fc9a83d1a4754949b6f8eb223d04db9
+      internalID: 1623636390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Table
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 948
+        width: 1152
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7f514f0ddb45ee4da9bbafc4486e194
+      internalID: 278706427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Drawer
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 1054
+        width: 762
+        height: 738
+      alignment: 9
+      pivot: {x: 0.5, y: 0.125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6512858841085bc4c8bbff155ec8407a
+      internalID: -1097046969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: L Forge Btn
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 879
+        width: 135
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a31d255d325287c42ac2adea788bd793
+      internalID: -1540215884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: L Shop Btn
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 879
+        width: 135
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ea23aa3584408848ae2427798fb3063
+      internalID: -744055100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: L Info Btn
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 879
+        width: 135
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e21cf00fa597c9c4b9835979512a2263
+      internalID: -233147442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: L Menu Btn
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 879
+        width: 135
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7324e702dcae5c94b9ed12e9d9923a8d
+      internalID: -499118004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Bottle
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 655
+        width: 166
+        height: 233
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 83, y: -71.5}
+        - {x: 83, y: -7.5}
+        - {x: 47, y: 33.5}
+        - {x: 47, y: 116.5}
+        - {x: -46, y: 116.5}
+        - {x: -48, y: 29.5}
+        - {x: -83, y: -7.5}
+        - {x: -83, y: -71.5}
+        - {x: -44, y: -110.5}
+        - {x: 43, y: -110.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26e1011eb79b4254b8183f173c7c7de9
+      internalID: 1412075277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Blood
+      rect:
+        serializedVersion: 2
+        x: 1125
+        y: 649
+        width: 92
+        height: 264
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 33, y: -109}
+        - {x: 46, y: 64}
+        - {x: 46, y: 86}
+        - {x: 20, y: 132}
+        - {x: -20, y: 132}
+        - {x: -46, y: 87}
+        - {x: -46, y: 62}
+        - {x: -33, y: -109}
+        - {x: -16, y: -132}
+        - {x: 17, y: -132}
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd709c42161299746ae47757c99c3897
+      internalID: -1189189542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Scroll
+      rect:
+        serializedVersion: 2
+        x: 1754
+        y: 656
+        width: 228
+        height: 227
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 77, y: -77.5}
+        - {x: 113, y: -51.5}
+        - {x: 43, y: 49.5}
+        - {x: 54, y: 85.5}
+        - {x: 29, y: 112.5}
+        - {x: -93, y: 73.5}
+        - {x: -112, y: 57.5}
+        - {x: -113, y: 24.5}
+        - {x: -56, y: -31.5}
+        - {x: -26, y: -104.5}
+        - {x: 2, y: -107.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b946c3ec99e1194c95f7db82176cf6d
+      internalID: 2092931267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S Forge Btn
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 727
+        width: 111
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eba5bef8ca4e4664cb3fc16ccefce4a2
+      internalID: -884488246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S Shop Btn
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 727
+        width: 112
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e68ad54debff8c49b0b1f8cf3b403d3
+      internalID: -76836322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S Info Btn
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 727
+        width: 112
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdab984b068ee1446aa0326b0a99a3b5
+      internalID: -32142863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S Menu Btn
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 727
+        width: 112
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b73c0f5dd4eae044ba3701949e3921f4
+      internalID: 1962302980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Slime
+      rect:
+        serializedVersion: 2
+        x: 1283
+        y: 682
+        width: 214
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 100, y: -50}
+        - {x: 107, y: 13}
+        - {x: 11, y: 80}
+        - {x: -50, y: 67}
+        - {x: -107, y: -23}
+        - {x: -102, y: -52}
+        - {x: -76, y: -72}
+        - {x: 57, y: -80}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13b9c8585f01ed2409cf7464423a7285
+      internalID: 1548990908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Ink
+      rect:
+        serializedVersion: 2
+        x: 1555
+        y: 681
+        width: 149
+        height: 153
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 74.5, y: -42.5}
+        - {x: 74.5, y: 36.5}
+        - {x: 37.5, y: 54.5}
+        - {x: 30.5, y: 73.5}
+        - {x: -28.5, y: 73.5}
+        - {x: -35.5, y: 54.5}
+        - {x: -74.5, y: 36.5}
+        - {x: -74.5, y: -41.5}
+        - {x: -0.5, y: -76.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 790e436867fd36743b6120faed169e48
+      internalID: -562970404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Day Circle
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 510
+        width: 183
+        height: 183
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e1c79a7c4eb2384cb100ef7a6ec970e
+      internalID: -1004980937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DangerBar
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 601
+        width: 539
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76fec6e046ba00543afe19277b2d9303
+      internalID: 795387911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_BlueGem
+      rect:
+        serializedVersion: 2
+        x: 875
+        y: 400
+        width: 191
+        height: 203
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 53.5, y: -72.5}
+        - {x: 92.5, y: -25.5}
+        - {x: 73.5, y: 31.5}
+        - {x: -15.5, y: 97.5}
+        - {x: -73.5, y: 32.5}
+        - {x: -95.5, y: -32.5}
+        - {x: -58.5, y: -88.5}
+        - {x: 2.5, y: -101.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8acd161dae548054cb81df339c45aadc
+      internalID: 1151035463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_RedGem
+      rect:
+        serializedVersion: 2
+        x: 1093
+        y: 398
+        width: 191
+        height: 203
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 53.5, y: -72.5}
+        - {x: 92.5, y: -25.5}
+        - {x: 73.5, y: 31.5}
+        - {x: -15.5, y: 97.5}
+        - {x: -73.5, y: 32.5}
+        - {x: -95.5, y: -32.5}
+        - {x: -58.5, y: -88.5}
+        - {x: 2.5, y: -101.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee591e996de964f468ba93747cb3ca25
+      internalID: 404662601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Flower
+      rect:
+        serializedVersion: 2
+        x: 1319
+        y: 379
+        width: 206
+        height: 232
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 30, y: -81}
+        - {x: 100, y: -100}
+        - {x: 81, y: 107}
+        - {x: -39, y: 110}
+        - {x: -103, y: -6}
+        - {x: -20, y: -80}
+        - {x: -16, y: -116}
+        - {x: 6, y: -116}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f0ddecbe1407e24c99d7ae1484d966b
+      internalID: 1520216700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Danger Fill
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 548
+        width: 514
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ab0300711e812e49b9cd45f135e7fe3
+      internalID: 1955790067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Necklace
+      rect:
+        serializedVersion: 2
+        x: 1559
+        y: 394
+        width: 220
+        height: 184
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 110, y: 3}
+        - {x: 89, y: 83}
+        - {x: -18, y: 90}
+        - {x: -83, y: 74}
+        - {x: -110, y: 34}
+        - {x: -94, y: 7}
+        - {x: -11, y: -30}
+        - {x: 80, y: -92}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86a049c40193f2e4da9633b666662e3c
+      internalID: -1778874569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Ring
+      rect:
+        serializedVersion: 2
+        x: 1815
+        y: 439
+        width: 143
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 71.5, y: -4.5}
+        - {x: 63.5, y: 28.5}
+        - {x: 37.5, y: 49.5}
+        - {x: 3.5, y: 54.5}
+        - {x: -39.5, y: 47.5}
+        - {x: -65.5, y: 25.5}
+        - {x: -71.5, y: -6.5}
+        - {x: -56.5, y: -36.5}
+        - {x: -25.5, y: -53.5}
+        - {x: 28.5, y: -52.5}
+        - {x: 55.5, y: -38.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e1db74c2cfe44949b8ae031e36cdcd8
+      internalID: 1254393023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 80df2e98be019ec4fa5800035049357e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Danger Fill: 1955790067
+      DangerBar: 795387911
+      Day Circle: -1004980937
+      Drawer: -1097046969
+      Drawer Body: 1623636390
+      Item_Blood: -1189189542
+      Item_BlueGem: 1151035463
+      Item_Bottle: 1412075277
+      Item_Flower: 1520216700
+      Item_Ink: -562970404
+      Item_Necklace: -1778874569
+      Item_RedGem: 404662601
+      Item_Ring: 1254393023
+      Item_Scroll: 2092931267
+      Item_Slime: 1548990908
+      L Forge Btn: -1540215884
+      L Info Btn: -233147442
+      L Menu Btn: -499118004
+      L Shop Btn: -744055100
+      S Forge Btn: -884488246
+      S Info Btn: -32142863
+      S Menu Btn: 1962302980
+      S Shop Btn: -76836322
+      Sprite Sheet_14: -1603062876
+      Table: 278706427
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

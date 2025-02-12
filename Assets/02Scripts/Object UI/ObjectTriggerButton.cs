@@ -32,13 +32,17 @@ public class ObjectTriggerButton : ObjectButtonBase
 
     protected override void ButtonClick()
     {
-        // Todo : 사운드 재생
+        PlaySound();
 
         clickEvent?.Invoke();
 
         if (normalSprite)
             sRenderer.sprite = normalSprite;
         sRenderer.color = normalColor;
+    }
+    protected virtual void PlaySound()
+    {
+        //Todo : 소리 출력
     }
 
     protected override void ButtonPress()

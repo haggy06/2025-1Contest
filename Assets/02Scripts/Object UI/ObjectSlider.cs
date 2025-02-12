@@ -51,7 +51,7 @@ public class ObjectSlider : MonoBehaviour, IDragable
         get => _value;
         set
         {
-            _value = value;
+            _value = Mathf.Clamp(value, minValue, maxValue);
 
             float percent = (_value - minValue) / (maxValue - minValue);
 

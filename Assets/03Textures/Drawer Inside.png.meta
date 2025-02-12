@@ -1,0 +1,601 @@
+fileFormatVersion: 2
+guid: 82a61d530ca9c134986c5d6bb443e1d3
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Forge
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 1464
+        width: 563
+        height: 510
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a738501d5b0056f428fcc0d4746ef7ab
+      internalID: -1971841854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forge Slot 1
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 1741
+        width: 178
+        height: 178
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad603f50b22948149b9d1c46235c41b6
+      internalID: 1176314331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forge Slot
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 1742
+        width: 178
+        height: 178
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 492f93d7f12400b41beff68a083d82c6
+      internalID: 874356630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Setting
+      rect:
+        serializedVersion: 2
+        x: 1229
+        y: 1422
+        width: 602
+        height: 553
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce177b98c0e0589429daa907812adec8
+      internalID: 1241684359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forge Cushion
+      rect:
+        serializedVersion: 2
+        x: 687
+        y: 1496
+        width: 435
+        height: 239
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c190281853c6d394aad7683cf247f2a9
+      internalID: 2090375756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGM
+      rect:
+        serializedVersion: 2
+        x: 1301
+        y: 1333
+        width: 60
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5928003a174bb2349a9be9d532c64489
+      internalID: -843056877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slider BG
+      rect:
+        serializedVersion: 2
+        x: 1412
+        y: 1346
+        width: 293
+        height: 36
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 27, y: 0, z: 26, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8efeb8140ee3064e9d8ec0116c95615
+      internalID: 1212971601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shop
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 633
+        width: 610
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8ac4984e5a172c4a80ab34dd03cd8cf
+      internalID: -687861248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shop Slot
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 1075
+        width: 407
+        height: 253
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a6a164d1f8c04c4e9e29b190195fa6f
+      internalID: -810460305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SFX
+      rect:
+        serializedVersion: 2
+        x: 1301
+        y: 1214
+        width: 66
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64a681b9640579c4f9e472edd8cd2225
+      internalID: 763967814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slider Edge
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 1275
+        width: 297
+        height: 43
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 29, y: 0, z: 27, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27307a16914c3384aae31cf4e693db25
+      internalID: -198915561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slider Fill
+      rect:
+        serializedVersion: 2
+        x: 1434
+        y: 1212
+        width: 193
+        height: 32
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 181d5405611fcee4c83149b0c10943bd
+      internalID: -1934346581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slider Btn
+      rect:
+        serializedVersion: 2
+        x: 1658
+        y: 1204
+        width: 22
+        height: 48
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42442bfc8a97a134a88c969b2b9c711b
+      internalID: -3038020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exit
+      rect:
+        serializedVersion: 2
+        x: 1289
+        y: 1078
+        width: 86
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c88c3d8e72466047a9eda96c434d7b8
+      internalID: 1275265511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Normal Up Btn
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 997
+        width: 70
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 35, y: -11.5}
+        - {x: 6, y: 24.5}
+        - {x: -8, y: 24.5}
+        - {x: -35, y: -8.5}
+        - {x: -35, y: -24.5}
+        - {x: 35, y: -24.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11e9e3e420209e046ae39a617d83bd44
+      internalID: -1270158810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Normal Down Btn
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 933
+        width: 70
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 35, y: 12}
+        - {x: 35, y: 25}
+        - {x: -35, y: 25}
+        - {x: -35, y: 9}
+        - {x: -8, y: -25}
+        - {x: 6, y: -25}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 673b410010780ac45a0850f79dfaac61
+      internalID: -1773724921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Money
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 863
+        width: 356
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43122fa0c78e99d4fbc0c511ee7a6383
+      internalID: 1696039669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Info
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 62
+        width: 579
+        height: 546
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7aa89a27fdfb2d341a3518d9f9de0543
+      internalID: -1929200658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Info Crystal
+      rect:
+        serializedVersion: 2
+        x: 678
+        y: 63
+        width: 563
+        height: 547
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cf27479d0475804a98ba4755d49efc4
+      internalID: -1532342963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: d95370952b9ab55438593f19ab743447
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BGM: -843056877
+      Drawer Inside_13: -1952268014
+      Drawer Inside_14: 1970176280
+      Drawer Inside_17: -673090524
+      Drawer Inside_18: 564363331
+      Drawer Inside_19: 1131286503
+      Drawer Inside_24: 655515603
+      Drawer Inside_25: -931446444
+      Drawer Inside_4: -563482391
+      Drawer Inside_6: -398179401
+      Exit: 1275265511
+      Forge: -1971841854
+      Forge Cushion: 2090375756
+      Forge Slot: 874356630
+      Forge Slot 1: 1176314331
+      Info: -1929200658
+      Info Crystal: -1532342963
+      Money: 1696039669
+      Normal Down Btn: -1773724921
+      Normal Up Btn: -1270158810
+      SFX: 763967814
+      Setting: 1241684359
+      Shop: -687861248
+      Shop Slot: -810460305
+      Slider BG: 1212971601
+      Slider Btn: -3038020
+      Slider Edge: -198915561
+      Slider Fill: -1934346581
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
     [SerializeField]
-    protected bool dontDestroy = true;
+    protected bool dontDestroy = false;
 
     protected static T instance;
     public static T Inst

@@ -20,12 +20,13 @@ public abstract class ObjectButtonBase : MonoBehaviour, IDragable
 
     private void OnMouseDown()
     {
-        isPress = true;
-        DragStart();
+        if (Active)
+            DragStart();
     }
     private void OnMouseUp()
     {
-        DragEnd();
+        if (isPress && Active)
+            DragEnd();
     }
     protected abstract void ButtonPress();
     protected abstract void ButtonClick();

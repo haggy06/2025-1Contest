@@ -2,6 +2,7 @@ using System.Drawing;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static UnityEditor.Progress;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
 [RequireComponent (typeof(PolygonCollider2D), typeof(Rigidbody2D), typeof(SpriteRenderer))]
@@ -16,12 +17,14 @@ public class DragItem : PoolObject, IDragable
     private static Vector2 minMoveVec = new Vector2(-5.25f, -4.55f);
     private static Vector2 maxMoveVec = new Vector2(5.25f, 2.85f);
 
-    private Rigidbody2D rigid2D;
+    private Rigidbody2D _rigid2D;
+    public Rigidbody2D rigid2D => _rigid2D;
+
     private SpriteRenderer sRenderer;
 
     private void Awake()
     {
-        rigid2D = GetComponent<Rigidbody2D>();
+        _rigid2D = GetComponent<Rigidbody2D>();
         sRenderer = GetComponent<SpriteRenderer>();
     }
     public override void Init(Vector2 position, float angle = 0)
@@ -61,12 +64,12 @@ public class DragItem : PoolObject, IDragable
         goalPosition.x = Mathf.Clamp(goalPosition.x, minMoveVec.x, maxMoveVec.x);
         goalPosition.y = Mathf.Clamp(goalPosition.y, minMoveVec.y, maxMoveVec.y);
 
-        rigid2D.MovePosition(goalPosition);
+        _rigid2D.MovePosition(goalPosition);
     }
 
     public void DragStart()
     {
-        rigid2D.bodyType = RigidbodyType2D.Dynamic;
+        _rigid2D.bodyType = RigidbodyType2D.Dynamic;
         InteractExit();
 
         dragStartPos = transform.position;
@@ -82,14 +85,13 @@ public class DragItem : PoolObject, IDragable
         myStartPos = transform.position;
         dragStartVec = MyCalculator.GetMousePosition();
     }
-
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void InteractExit()
     {
         if (curInteract != null)
         {
             curInteract.InteractEnd(this);
-            curInteract = null;
+            // curInteract = null; // 혹시 돌아올 수도 있으므로 curInteract 초기화는 좀 있다가 하기
         }
     }
 
@@ -108,8 +110,11 @@ public class DragItem : PoolObject, IDragable
             cols[i] = null;
         }
 
+        IItemInteractable lastInteract = curInteract;
+        curInteract = null;
+
         bool isShouldUndo = false;
-        if (rigid2D.GetContacts(filter, cols) > 0)
+        if (_rigid2D.GetContacts(filter, cols) > 0)
         {
             foreach(Collider2D col in cols)
             {
@@ -123,8 +128,6 @@ public class DragItem : PoolObject, IDragable
                     {
                         isShouldUndo = false;
 
-                        rigid2D.angularVelocity = 0f;
-                        rigid2D.bodyType = RigidbodyType2D.Kinematic;
                         curInteract = interact;
                         interact.InteractStart(this);
 
@@ -137,10 +140,28 @@ public class DragItem : PoolObject, IDragable
                 }
             }
         }
-        if (isShouldUndo)
+
+        if (isShouldUndo) // 되돌아가야 할 경우
+        {
+            if (lastInteract != null)
+            {
+                curInteract = lastInteract;
+                curInteract.InteractStart(this);
+            }
+
             UndoDrag();
+        }
 
         SetLayer();
+    }
+
+    public void RemoveVelocity(bool isKinematic = false)
+    {
+        rigid2D.linearVelocity = Vector2.zero;
+        rigid2D.angularVelocity = 0f;
+
+        if (isKinematic)
+            rigid2D.bodyType = RigidbodyType2D.Kinematic;
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -154,6 +175,15 @@ public class DragItem : PoolObject, IDragable
 
             isOnDrawer = true;
             transform.parent = DrawerManager.Inst.GetCurDrawer().transform;
+        }
+        else if (IsCollapseToTray()) // 트레이 위에 올려놨을 경우
+        {
+            sRenderer.sortingOrder = 50;
+            gameObject.layer = 8;
+            transform.position = new Vector3(transform.position.x, transform.position.y, -0.5f);
+
+            isOnDrawer = true;
+            transform.parent = SubmitManager.Inst.tray.transform;
         }
         else
         {
@@ -177,10 +207,19 @@ public class DragItem : PoolObject, IDragable
         return (drawerPosition.x - (DrawerManager.drawerSize.x / 2f) < transform.position.x && transform.position.x < drawerPosition.x + (DrawerManager.drawerSize.x / 2f)) &&
             (drawerPosition.y < transform.position.y && transform.position.y < drawerPosition.y + DrawerManager.drawerSize.y);
     }
+    private bool IsCollapseToTray()
+    {
+        Vector2 trayPosition = SubmitManager.Inst.tray.transform.position;
+
+        return (trayPosition.x - (SubmitManager.traySize.x / 2f) < transform.position.x && transform.position.x < trayPosition.x + (SubmitManager.traySize.x / 2f)) &&
+            (trayPosition.y - (SubmitManager.traySize.y / 2f) < transform.position.y && transform.position.y < trayPosition.y + (SubmitManager.traySize.y / 2f));
+    }
 
     public void UndoDrag()
     {
         transform.position = dragStartPos;
         transform.eulerAngles = Vector3.forward * dragStartRot;
+
+        RemoveVelocity();
     }
 }

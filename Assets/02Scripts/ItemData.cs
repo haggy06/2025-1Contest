@@ -9,8 +9,16 @@ public class ItemData : ScriptableObject
     public ItemType itemType => _itemType;
 
     [SerializeField]
+    private Sprite _sprite;
+    public Sprite sprite => _sprite;
+
+    [SerializeField]
     private int _price;
     public int price => _price;
+
+    [SerializeField]
+    private int _stock;
+    public int stock => _stock;
 
     [SerializeField]
     private Recipe[] _recipes;

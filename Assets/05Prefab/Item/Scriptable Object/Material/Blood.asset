@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Blood
   m_EditorClassIdentifier: 
   _itemType: 2
-  _price: 0
+  _sprite: {fileID: -1189189542, guid: 279f2f462b7028849899a4ea03c5a8fb, type: 3}
+  _price: 300
+  _stock: 1
   _recipes:
   - element: 12
     output: {fileID: 2465705735796013837, guid: 736e34ae199dc9140821602bb526b251, type: 3}
-  _itemPrefab: {fileID: 0}

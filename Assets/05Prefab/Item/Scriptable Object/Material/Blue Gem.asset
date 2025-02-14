@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Blue Gem
   m_EditorClassIdentifier: 
   _itemType: 1
-  _price: 0
+  _sprite: {fileID: 1151035463, guid: 279f2f462b7028849899a4ea03c5a8fb, type: 3}
+  _price: 300
+  _stock: 2
   _recipes:
   - element: 10
     output: {fileID: 8513526888019083208, guid: 3263b9cf479325542884834139fc3999, type: 3}
   - element: 11
     output: {fileID: 8513526888019083208, guid: 0cccaf274590b5247b1264bc217be174, type: 3}
-  _itemPrefab: {fileID: 0}

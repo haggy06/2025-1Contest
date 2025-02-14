@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class DrawerManager : Singleton<DrawerManager>
 {
     #region _Static Elements_
-    public static Vector2 drawerSize = new Vector2(6.6f, 6f);
+    public static readonly Vector2 drawerSize = new Vector2(6.6f, 6f);
     #endregion
 
     [SerializeField]

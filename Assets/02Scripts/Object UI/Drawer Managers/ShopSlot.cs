@@ -1,3 +1,5 @@
+using System.Runtime.CompilerServices;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -8,56 +10,64 @@ public class ShopSlot : ObjectTriggerButton
     private AudioClip failSound;
     [SerializeField]
     private GameObject soldOut;
+    [SerializeField]
+    private SpriteRenderer icon;
+    [SerializeField]
+    private TextMeshPro price;
 
     [Space(5)]
     [SerializeField]
-    private int _itemID;
-    public int itemID => _itemID;
-
-    [SerializeField]
-    private int _price;
-    public int price => _price;
-
-
-    [SerializeField]
-    private int stock;
-    private int curStock;
+    private ItemData _item;
+    public ItemData item => _item;
 
     private BoxCollider2D col;
     protected new void Awake()
     {
         base.Awake();
         col = GetComponent<BoxCollider2D>();
+
+        icon.sprite = _item.sprite;
+        price.text = MyCalculator.AddComma(_item.price);
+
+        ResetStock();
     }
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public void ColActive(bool active)
     {
-        col.enabled = active;
+        if (!soldOut.activeSelf) // 품절되지 않은 상태에서만 변경 가능.
+            col.enabled = active;
     }
 
     protected override void ButtonClick()
     {
-        base.ButtonClick();
+        if (normalSprite)
+            sRenderer.sprite = normalSprite;
+        sRenderer.color = normalColor;
 
-        if (price < DataManager.GameData.money)
+        if (_item.price < DataManager.GameData.money)
         {
             if (IsThereStock())
             {
-                ShopManager.Inst.Buy(itemID);
-                GetStoke();
+                PlaySound();
+                clickEvent?.Invoke();
 
+                DataManager.GameData.money = DataManager.GameData.money - _item.price;
+                IngameCanvasManager.RefreshMoney();
+
+                GetStoke();
                 if (!IsThereStock())
                 {
+                    ColActive(false);
                     soldOut.SetActive(true);
-                    Active = false;
                 }
             }
         }
     }
     protected override void PlaySound()
     {
-        if (price < DataManager.GameData.money)
+        if (_item.price < DataManager.GameData.money)
         {
-            //Todo 소리 재생
+            // Todo 소리 재생
         }
         else
         {
@@ -65,12 +75,12 @@ public class ShopSlot : ObjectTriggerButton
         }
     }
 
+    private int curStock;
     public void ResetStock()
     {
         soldOut.SetActive(false);
-        Active = true;
 
-        curStock = stock;
+        curStock = _item.stock;
     }
     public bool IsThereStock()
     {

@@ -1,9 +1,12 @@
 using System.Collections.Generic;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ShopManager : Singleton<ShopManager>
+public class ShopManager : MonoBehaviour
 {
+    [SerializeField]
+    private ObjectPool pool;
     [SerializeField]
     private ShopSlot[] slotArr;
 
@@ -17,11 +20,6 @@ public class ShopManager : Singleton<ShopManager>
     private float scrollTime = 0.2f;
     [SerializeField]
     private LeanTweenType scrollType = LeanTweenType.linear;
-
-    protected new void Awake()
-    {
-        base.Awake();
-    }
     private void Start()
     {
         Init();
@@ -70,13 +68,10 @@ public class ShopManager : Singleton<ShopManager>
         slotTweenID = LeanTween.moveLocalY(slotScroll, targetY, scrollTime).setEase(scrollType).id;
     }
 
-    public void Buy(int itemID)
+    public void Buy(DragItem item)
     {
-        // Todo : 아이템 구매 구현
-    }
-
-    protected override void SceneChanged(Scene replacedScene, Scene newScene)
-    {
-        
+        Debug.Log(item.gameObject.name + " 구매");
+        DragItem poolObj = pool.GetPoolObject<DragItem>(item);
+        poolObj.Init(new Vector2(Random.Range(-4f, -3f), Random.Range(-3.5f, 2f)), 0f);
     }
 }

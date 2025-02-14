@@ -285,7 +285,7 @@ TextureImporter:
         width: 166
         height: 233
       alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -468,8 +468,8 @@ TextureImporter:
         y: 682
         width: 214
         height: 160
-      alignment: 9
-      pivot: {x: 0.5182022, y: 0.4513073}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -633,8 +633,8 @@ TextureImporter:
         y: 378
         width: 206
         height: 232
-      alignment: 9
-      pivot: {x: 0.57185614, y: 0.5100742}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -685,8 +685,8 @@ TextureImporter:
         y: 394
         width: 220
         height: 184
-      alignment: 9
-      pivot: {x: 0.56020117, y: 0.6439597}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -711,8 +711,8 @@ TextureImporter:
       name: Item_Ring
       rect:
         serializedVersion: 2
-        x: 1815
-        y: 439
+        x: 1816
+        y: 440
         width: 143
         height: 109
       alignment: 0
@@ -741,7 +741,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue Ring
+      name: Output_BlueRing
       rect:
         serializedVersion: 2
         x: 179
@@ -775,7 +775,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Red Ring
+      name: Output_RedRing
       rect:
         serializedVersion: 2
         x: 412
@@ -809,7 +809,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime Bottle
+      name: Output_SlimeBottle
       rect:
         serializedVersion: 2
         x: 70
@@ -843,7 +843,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flower Bottle
+      name: Output_FlowerBottle
       rect:
         serializedVersion: 2
         x: 295
@@ -877,7 +877,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blood Bottle
+      name: Output_BloodBottle
       rect:
         serializedVersion: 2
         x: 517
@@ -911,15 +911,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue Lace
+      name: Output_BlueLace
       rect:
         serializedVersion: 2
         x: 743
         y: 88
         width: 264
         height: 220
-      alignment: 9
-      pivot: {x: 0.52, y: 0.61}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -941,15 +941,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Red Lace
+      name: Output_RedLace
       rect:
         serializedVersion: 2
         x: 1029
         y: 83
         width: 263
         height: 219
-      alignment: 9
-      pivot: {x: 0.52, y: 0.61}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -971,7 +971,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dark Scroll
+      name: Output_DarkScroll
       rect:
         serializedVersion: 2
         x: 1337
@@ -1003,7 +1003,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fail
+      name: Output_Fail
       rect:
         serializedVersion: 2
         x: 1651
@@ -1050,17 +1050,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Blood Bottle: -1218576265
-      Blue Lace: -551613907
-      Blue Ring: 1452584229
       Danger Fill: 1955790067
       DangerBar: 795387911
-      Dark Scroll: 1385681408
       Day Circle: -1004980937
       Drawer: -1097046969
       Drawer Body: 1623636390
-      Fail: -784639383
-      Flower Bottle: 722412555
       Item_Blood: -1189189542
       Item_BlueGem: 1151035463
       Item_Bottle: 1412075277
@@ -1075,13 +1069,19 @@ TextureImporter:
       L Info Btn: -233147442
       L Menu Btn: -499118004
       L Shop Btn: -744055100
-      Red Lace: -1931395968
-      Red Ring: 717390705
+      Output_BloodBottle: -1218576265
+      Output_BlueLace: -551613907
+      Output_BlueRing: 835523084
+      Output_DarkScroll: 1385681408
+      Output_Fail: -784639383
+      Output_FlowerBottle: 722412555
+      Output_RedLace: -1931395968
+      Output_RedRing: -813820511
+      Output_SlimeBottle: 1623674978
       S Forge Btn: -884488246
       S Info Btn: -32142863
       S Menu Btn: 1962302980
       S Shop Btn: -76836322
-      Slime Bottle: -1658381604
       Sprite Sheet_14: -1603062876
       Table: 278706427
   mipmapLimitGroupName: 

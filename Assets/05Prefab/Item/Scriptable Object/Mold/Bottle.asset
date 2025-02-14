@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Bottle
   m_EditorClassIdentifier: 
   _itemType: 12
-  _price: 0
+  _sprite: {fileID: 1412075277, guid: 279f2f462b7028849899a4ea03c5a8fb, type: 3}
+  _price: 500
+  _stock: 2
   _recipes:
   - element: 2
     output: {fileID: 2465705735796013837, guid: 736e34ae199dc9140821602bb526b251, type: 3}
@@ -21,4 +23,3 @@ MonoBehaviour:
     output: {fileID: 2465705735796013837, guid: 9e0a697cdab99174388e52a1c876e6f2, type: 3}
   - element: 4
     output: {fileID: 2465705735796013837, guid: 3af3655c4b0f9ef4e84e5656af29ab04, type: 3}
-  _itemPrefab: {fileID: 0}

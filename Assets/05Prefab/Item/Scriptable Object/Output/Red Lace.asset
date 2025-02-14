@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Red Lace
   m_EditorClassIdentifier: 
   _itemType: 102
+  _sprite: {fileID: -1931395968, guid: 279f2f462b7028849899a4ea03c5a8fb, type: 3}
   _price: 0
-  _itemPrefab: {fileID: 0}
+  _stock: 0
+  _recipes: []

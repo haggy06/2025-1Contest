@@ -10,9 +10,9 @@ public class ForgeManager : MonoBehaviour
 
     [Space(5)]
     [SerializeField]
-    private ForgeSlot slot1;
+    private SlotInteract slot1;
     [SerializeField]
-    private ForgeSlot slot2;
+    private SlotInteract slot2;
     [SerializeField]
     private GameObject combineBtn;
 

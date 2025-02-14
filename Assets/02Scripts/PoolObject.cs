@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PoolObject : MonoBehaviour
 {
-    [SerializeField]
-    private bool destroyWhenBomb = true;
     [HideInInspector]
     public ObjectPool parentPool;
 

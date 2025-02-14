@@ -12,11 +12,17 @@ public class IngameCanvasManager : CanvasManager
 
     [Header("Components Reference")]
     [SerializeField]
-    private TextMeshProUGUI dayText;
+    private TextMeshProUGUI _dayText;
+    private static TextMeshProUGUI dayText;
+
+
     [SerializeField]
-    private TextMeshProUGUI moneyText;
+    private TextMeshProUGUI _moneyText;
+    private static TextMeshProUGUI moneyText;
+
     [SerializeField]
-    private Image dangerGauge;
+    private Image _dangerGauge;
+    private static Image dangerGauge;
 
     [Header("Drawer Setting")]
     [SerializeField]
@@ -29,10 +35,15 @@ public class IngameCanvasManager : CanvasManager
     protected new void Awake()
     {
         base.Awake();
+
         bgmSlider.onValueChanged.AddListener(ChangeBGMVolume);
         bgmSlider.value = DataManager.SettingData.bgmVolume;
         sfxSlider.onValueChanged.AddListener(ChangeSFXVolume);
         sfxSlider.value = DataManager.SettingData.sfxVolume;
+
+        dayText = _dayText;
+        moneyText = _moneyText;
+        dangerGauge = _dangerGauge;
 
         RefreshDay();
         RefreshMoney();
@@ -50,15 +61,16 @@ public class IngameCanvasManager : CanvasManager
         LeanTween.moveLocal(popup.gameObject, openPos, drawerTime);
     }
 
-    public void RefreshDay()
+    
+    public static void RefreshDay()
     {
         dayText.text = "Day " + DataManager.GameData.day;
     }
-    public void RefreshMoney()
+    public static void RefreshMoney()
     {
-        moneyText.text = string.Format("{0:C0}", DataManager.GameData.money);
+        moneyText.text = MyCalculator.AddComma(DataManager.GameData.money);
     }
-    public void RefreshDanger()
+    public static void RefreshDanger()
     {
         dangerGauge.fillAmount = DataManager.GameData.danger;
     }

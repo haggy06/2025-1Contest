@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Necklace
   m_EditorClassIdentifier: 
   _itemType: 11
-  _price: 0
+  _sprite: {fileID: -1778874569, guid: 279f2f462b7028849899a4ea03c5a8fb, type: 3}
+  _price: 500
+  _stock: 1
   _recipes:
   - element: 0
     output: {fileID: 8513526888019083208, guid: 52f91f897f2786b49b0d6e336bbc1a5f, type: 3}
   - element: 1
     output: {fileID: 8513526888019083208, guid: 0cccaf274590b5247b1264bc217be174, type: 3}
-  _itemPrefab: {fileID: 0}

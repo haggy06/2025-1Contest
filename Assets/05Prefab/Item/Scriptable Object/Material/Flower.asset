@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Flower
   m_EditorClassIdentifier: 
   _itemType: 4
-  _price: 0
+  _sprite: {fileID: 1520216700, guid: 279f2f462b7028849899a4ea03c5a8fb, type: 3}
+  _price: 300
+  _stock: 1
   _recipes:
   - element: 12
     output: {fileID: 2465705735796013837, guid: 3af3655c4b0f9ef4e84e5656af29ab04, type: 3}
-  _itemPrefab: {fileID: 0}

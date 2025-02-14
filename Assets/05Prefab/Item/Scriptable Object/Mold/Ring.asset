@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Ring
   m_EditorClassIdentifier: 
   _itemType: 10
-  _price: 0
+  _sprite: {fileID: 1254393023, guid: 279f2f462b7028849899a4ea03c5a8fb, type: 3}
+  _price: 500
+  _stock: 1
   _recipes:
   - element: 0
     output: {fileID: 8513526888019083208, guid: b528a9190151d304f9aace9a9f6dd8ba, type: 3}
   - element: 1
     output: {fileID: 8513526888019083208, guid: 3263b9cf479325542884834139fc3999, type: 3}
-  _itemPrefab: {fileID: 0}

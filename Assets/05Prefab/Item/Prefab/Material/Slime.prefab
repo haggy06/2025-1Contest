@@ -127,7 +127,7 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5182022, y: 0.4513073}
+    pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 2.14, y: 1.6}
     newSize: {x: 1, y: 0.5}
     adaptiveTilingThreshold: 0.5
@@ -136,14 +136,14 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.96104735, y: -0.42209166}
-      - {x: 1.0310473, y: 0.20790832}
-      - {x: 0.07104736, y: 0.8779083}
-      - {x: -0.53895265, y: 0.7479083}
-      - {x: -1.1089526, y: -0.15209167}
-      - {x: -1.0589526, y: -0.44209167}
-      - {x: -0.79895264, y: -0.64209163}
-      - {x: 0.53104734, y: -0.7220917}
+    - - {x: 1, y: -0.5}
+      - {x: 1.0699999, y: 0.13}
+      - {x: 0.11, y: 0.79999995}
+      - {x: -0.5, y: 0.66999996}
+      - {x: -1.0699999, y: -0.22999999}
+      - {x: -1.02, y: -0.52}
+      - {x: -0.76, y: -0.71999997}
+      - {x: 0.57, y: -0.79999995}
   m_UseDelaunayMesh: 0
 --- !u!50 &2891322513831198865
 Rigidbody2D:
@@ -184,7 +184,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e096736d7da0eab42beaf26704fe3d32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyWhenBomb: 1
   parentPool: {fileID: 0}
   <Active>k__BackingField: 1
   _itemData: {fileID: 11400000, guid: f758368107f9b0944be341f722668c99, type: 2}

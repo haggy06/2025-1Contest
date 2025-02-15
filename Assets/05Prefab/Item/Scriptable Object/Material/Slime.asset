@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Slime
   m_EditorClassIdentifier: 
   _itemType: 3
+  _itemIndex: 5
   _sprite: {fileID: 1548990908, guid: 279f2f462b7028849899a4ea03c5a8fb, type: 3}
   _price: 300
   _stock: 1

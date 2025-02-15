@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Drawing;
 using System.Runtime.CompilerServices;
 using UnityEngine;
@@ -41,20 +42,33 @@ public class DragItem : PoolObject, IDragable
     {
         if (Active)
             if (isOnDrawer || !IsCollapseToTable()) // 테이블에 깔려있지 않을 때만 DragStart 호출
-            DragStart();
+                DragStart();
     }
-    private void OnMouseUp()
+    private void Update()
+    {
+        if (Input.GetMouseButtonUp(0))
+        {
+            if (Active)
+                if (isHolding) // 들고 있었을 때만 DragEnd 호출
+                    DragEnd();
+        }
+    }
+    /*
+    private void OnMouseUp() // 인벤토리로 소환했을 때 안 놔지는 문제
     {
         if (Active)
             if (isHolding) // 들고 있었을 때만 DragEnd 호출
-            DragEnd();
+                DragEnd();
     }
-    private void OnMouseDrag()
+    */
+    /*
+    private void OnMouseDrag() // 인벤토리로 소환했을 때 바로 안 집히는 문제
     {
         if (Active)
             if (isHolding) // 들고 있을 때만 Dragging 호출
-            Dragging();
+                Dragging();
     }
+    */
 
     private Vector2 dragStartVec = Vector2.zero;
     private Vector2 myStartPos = Vector2.zero;
@@ -75,7 +89,6 @@ public class DragItem : PoolObject, IDragable
         dragStartPos = transform.position;
         dragStartRot = transform.eulerAngles.z;
 
-        isHolding = true;
         isOnDrawer = false;
         transform.parent = null;
 
@@ -84,7 +97,22 @@ public class DragItem : PoolObject, IDragable
 
         myStartPos = transform.position;
         dragStartVec = MyCalculator.GetMousePosition();
+
+        isHolding = true;
+        StartCoroutine("DragCor");
     }
+    private IEnumerator DragCor()
+    {
+        while (isHolding)
+        {
+            if (Active)
+                if (isHolding) // 들고 있을 때만 Dragging 호출
+                    Dragging();
+
+            yield return null;
+        }
+    }
+
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void InteractExit()
     {
@@ -95,11 +123,17 @@ public class DragItem : PoolObject, IDragable
         }
     }
 
-    Collider2D[] cols = new Collider2D[3];
-    IItemInteractable curInteract = null;
+    private Collider2D[] cols = new Collider2D[3];
+    private IItemInteractable curInteract = null;
+    public void SetCurInteractArbitrarily(IItemInteractable interactable)
+    {
+        curInteract = interactable;
+    }
+
     public void DragEnd()
     {
         isHolding = false;
+        StopCoroutine("DragCor");
 
         ContactFilter2D filter = new ContactFilter2D();
         filter.layerMask = 1 << 10;
@@ -124,12 +158,11 @@ public class DragItem : PoolObject, IDragable
                 if (col.TryGetComponent<IItemInteractable>(out var interact))
                 {
                     print(col.name + "와 상호작용 시도");
-                    if (interact.CanInteract)
+                    if (interact.InteractStart(this))
                     {
                         isShouldUndo = false;
 
                         curInteract = interact;
-                        interact.InteractStart(this);
 
                         break;
                     }
@@ -221,5 +254,11 @@ public class DragItem : PoolObject, IDragable
         transform.eulerAngles = Vector3.forward * dragStartRot;
 
         RemoveVelocity();
+    }
+
+    [ContextMenu("Test")]
+    public void ItemDicSaveTest()
+    {
+        DataManager.SaveGameData();
     }
 }

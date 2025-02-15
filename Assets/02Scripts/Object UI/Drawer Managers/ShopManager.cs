@@ -68,10 +68,12 @@ public class ShopManager : MonoBehaviour
         slotTweenID = LeanTween.moveLocalY(slotScroll, targetY, scrollTime).setEase(scrollType).id;
     }
 
-    public void Buy(DragItem item)
+    public void Buy(int itemIndex)
     {
-        Debug.Log(item.gameObject.name + " ±¸¸Å");
+        DataManager.GameData.itemStatus[itemIndex].itemCount++;
+        /*
         DragItem poolObj = pool.GetPoolObject<DragItem>(item);
         poolObj.Init(new Vector2(Random.Range(-4f, -3f), Random.Range(-3.5f, 2f)), 0f);
+        */
     }
 }

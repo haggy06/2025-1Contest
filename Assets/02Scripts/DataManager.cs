@@ -19,7 +19,15 @@ public static class DataManager
     }
     public static void ResetGameData()
     {
+        DragItemList ItemDataList = ResourceLoader<DragItemList>.ResourceLoad(FolderName.Ect, "ItemDataList");
+        Debug.Log(ItemDataList);
+
         _gameData = new GameData();
+        for (int i = 0; i < _gameData.itemStatus.Length; i++)
+        {
+            _gameData.itemStatus[i] = new ItemCount(ItemDataList.dataList[i]);
+        }
+
         SaveGameData();
     }
 

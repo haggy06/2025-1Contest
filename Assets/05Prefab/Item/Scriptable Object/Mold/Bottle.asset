@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Bottle
   m_EditorClassIdentifier: 
   _itemType: 12
+  _itemIndex: 6
   _sprite: {fileID: 1412075277, guid: 279f2f462b7028849899a4ea03c5a8fb, type: 3}
   _price: 500
   _stock: 2

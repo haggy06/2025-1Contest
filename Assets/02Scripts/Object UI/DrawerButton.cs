@@ -23,17 +23,26 @@ public class DrawerButton : ObjectButtonBase
     [SerializeField]
     private bool isPressed = false;
     public bool IsPressed => isPressed;
+    [SerializeField]
+    private GameObject bangMark;
+
+    public void BangActive(bool active)
+    {
+        bangMark.SetActive(active);
+    }
 
     private DrawerManager drawerManager;
     protected SpriteRenderer sRenderer;
     private void Awake()
     {
+        BangActive(false);
         sRenderer = GetComponent<SpriteRenderer>();
         drawerManager = GetComponentInParent<DrawerManager>();
     }
 
     public void ButtonON()
     {
+        BangActive(false);
         isPressed = true;
 
         if (pressSprite)

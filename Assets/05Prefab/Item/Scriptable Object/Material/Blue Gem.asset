@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Blue Gem
   m_EditorClassIdentifier: 
   _itemType: 1
+  _itemIndex: 1
   _sprite: {fileID: 1151035463, guid: 279f2f462b7028849899a4ea03c5a8fb, type: 3}
   _price: 300
   _stock: 2

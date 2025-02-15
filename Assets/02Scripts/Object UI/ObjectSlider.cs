@@ -56,7 +56,7 @@ public class ObjectSlider : MonoBehaviour, IDragable
             float percent = (_value - minValue) / (maxValue - minValue);
 
             transform.localPosition = new Vector2(percent * (barBackground.size.x - button.size.x), 0f);
-            fillBar.size = new Vector2(percent * barBackground.size.x, 1f);
+            fillBar.size = new Vector2(percent * barBackground.size.x, fillBar.size.y);
 
             onValueChanged?.Invoke(_value);
         }

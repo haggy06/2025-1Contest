@@ -15,7 +15,7 @@ public static class ResourceLoader<T> where T : UnityEngine.Object
 
         if (!resourceCache.TryGetValue(key, out value)) // 캐싱된 리소스가 있을 경우 불러옴
         { // 캐싱된 리소스가 없을 경우
-            value = Resources.Load<T>(Path.Combine(typeof(T).Name, Path.Combine(folder.ToString(), resourceName))); // 리소스 로드
+            value = Resources.Load<T>(Path.Combine(folder.ToString(), resourceName)); // 리소스 로드
 
             resourceCache.Add(key, value); // 불러온 리소스 캐싱
         }

@@ -15,4 +15,10 @@ public static class MyCalculator
     {
         return String.Format("{0:#,0}", num);
     }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static ItemCount GetItemCount(DragItem item)
+    {
+        return DataManager.GameData.itemStatus[item.itemData.itemIndex];
+    }
 }

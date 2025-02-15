@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Scroll
   m_EditorClassIdentifier: 
   _itemType: 13
+  _itemIndex: 9
   _sprite: {fileID: 2092931267, guid: 279f2f462b7028849899a4ea03c5a8fb, type: 3}
   _price: 500
   _stock: 1

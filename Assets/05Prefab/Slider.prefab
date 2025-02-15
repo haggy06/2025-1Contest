@@ -85,7 +85,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 1
+  m_MaskInteraction: 2
   m_SpriteSortPoint: 0
 --- !u!1 &1037967812307820929
 GameObject:
@@ -252,7 +252,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7906826693585813128}
   - component: {fileID: 1092317749662817287}
-  - component: {fileID: 8420094674347994766}
+  - component: {fileID: 3271660998701309324}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -333,7 +333,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!331 &8420094674347994766
+--- !u!331 &3271660998701309324
 SpriteMask:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -377,7 +377,7 @@ SpriteMask:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1212971601, guid: 82a61d530ca9c134986c5d6bb443e1d3, type: 3}
+  m_Sprite: {fileID: -1361602415, guid: 82a61d530ca9c134986c5d6bb443e1d3, type: 3}
   m_MaskAlphaCutoff: 0.2
   m_FrontSortingLayerID: 0
   m_BackSortingLayerID: 0

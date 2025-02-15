@@ -61,6 +61,10 @@ public class ForgeManager : MonoBehaviour
         slot2.UseItem();
 
         DragItem outputItem = pool.GetPoolObject<DragItem>(resultItem);
+        ItemCount itemC = MyCalculator.GetItemCount(resultItem);
+        itemC.itemCount++;
+        itemC.outCount++;
+
         outputItem.Init(cushion.position);
     }
 }

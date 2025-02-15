@@ -8,7 +8,10 @@ public class SlotInteract : MonoBehaviour, IItemInteractable
     public bool CanInteract { get; set; } = true;
     [SerializeField]
     private bool fixItemTransform = true;
+    [SerializeField]
+    private InteractLimit interactLimit = InteractLimit.Every;
 
+    [Space(5)]
     [SerializeField]
     private DragItem _curItem;
     public DragItem curItem => _curItem;
@@ -18,23 +21,44 @@ public class SlotInteract : MonoBehaviour, IItemInteractable
         InteractEnd(_curItem, true);
     }
 
-    public void InteractStart(DragItem item)
+    public bool InteractStart(DragItem item)
     {
-        _curItem = item;
-        InteractChanged?.Invoke();
-
-        if (fixItemTransform)
+        if (CanInteract)
         {
-            item.RemoveVelocity(true);
+            switch (interactLimit)
+            {
+                case InteractLimit.Elemental:
+                    if ((int)item.itemData.itemType >= 100) // 결과물일 경우 반환
+                        return false;
+                    break;
+                case InteractLimit.Output:
+                    if ((int)item.itemData.itemType < 100) // 재료일 경우 반환
+                        return false;
+                    break;
+            }
 
-            item.transform.position = new Vector3(transform.position.x, transform.position.y, item.transform.position.z);
-            item.transform.eulerAngles = Vector3.zero;
+            _curItem = item;
+            InteractChanged?.Invoke();
+
+            if (fixItemTransform)
+            {
+                item.RemoveVelocity(true);
+
+                item.transform.position = new Vector3(transform.position.x, transform.position.y, item.transform.position.z);
+                item.transform.eulerAngles = Vector3.zero;
+            }
+
+            CanInteract = false;
+
+            return true;
         }
-
-        CanInteract = false;
+        else
+        {
+            return false;
+        }
     }
 
-    public void InteractEnd(DragItem item)
+    public bool InteractEnd(DragItem item)
     {
         if (curItem == item)
         {
@@ -42,9 +66,15 @@ public class SlotInteract : MonoBehaviour, IItemInteractable
             InteractChanged?.Invoke();
 
             CanInteract = true;
+
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
-    public void InteractEnd(DragItem item, bool destroyItem)
+    public bool InteractEnd(DragItem item, bool destroyItem)
     {
         if (curItem == item)
         {
@@ -55,8 +85,22 @@ public class SlotInteract : MonoBehaviour, IItemInteractable
             InteractChanged?.Invoke();
 
             CanInteract = true;
+
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 
     public event Action InteractChanged;
+}
+
+public enum InteractLimit
+{
+    Every,
+    Elemental,
+    Output,
+
 }

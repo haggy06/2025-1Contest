@@ -10,22 +10,34 @@ public static class DataManager
     {
         FileSaveLoader<GameData>.SaveData(FileName.GameData.ToString(), _gameData);
     }
+
+    private static DragItemList _itemDataList;
+    public static DragItemList itemDataList => _itemDataList;
+
     public static void RefreshGameData()
     {
         if (!FileSaveLoader<GameData>.TryLoadData(FileName.GameData.ToString(), out _gameData)) // 저장된 데이터를 가져오거나. 없을 경우 하나 새로 만듦
         {
             ResetGameData();
         }
+        else // 가끔 instanceID가 바뀌는지 item 인식이 안 될 때가 있어서 초기화시켜줌
+        {
+            _itemDataList = ResourceLoader<DragItemList>.ResourceLoad(FolderName.Ect, "ItemDataList");
+            for (int i = 0; i < _gameData.itemStatus.Length; i++)
+            {
+                _gameData.itemStatus[i].item = _itemDataList.dataList[i];
+            }
+        }
     }
     public static void ResetGameData()
     {
-        DragItemList ItemDataList = ResourceLoader<DragItemList>.ResourceLoad(FolderName.Ect, "ItemDataList");
-        Debug.Log(ItemDataList);
+        _itemDataList = ResourceLoader<DragItemList>.ResourceLoad(FolderName.Ect, "ItemDataList");
+        Debug.Log(_itemDataList);
 
         _gameData = new GameData();
         for (int i = 0; i < _gameData.itemStatus.Length; i++)
         {
-            _gameData.itemStatus[i] = new ItemCount(ItemDataList.dataList[i]);
+            _gameData.itemStatus[i] = new ItemCount(_itemDataList.dataList[i]);
         }
 
         SaveGameData();

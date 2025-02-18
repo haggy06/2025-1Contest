@@ -27,7 +27,7 @@ public class GameData
 public class ItemCount
 {
     public DragItem item = null;
-    public int itemCount = 0;
+    public int itemCount = 13;
     public int outCount = 0;
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]

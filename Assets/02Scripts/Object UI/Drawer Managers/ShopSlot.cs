@@ -79,6 +79,7 @@ public class ShopSlot : ObjectTriggerButton
     public void ResetStock()
     {
         soldOut.SetActive(false);
+        ColActive(true);
 
         curStock = _item.stock;
     }

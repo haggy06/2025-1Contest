@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class InventoryManager : MonoBehaviour, IItemInteractable
 {
@@ -6,7 +7,7 @@ public class InventoryManager : MonoBehaviour, IItemInteractable
     public bool CanInteract { get; set; }
 
     [SerializeField]
-    private Vector2 inventoryGridSize = new Vector2(4, 4);
+    private Vector2Int inventoryGridSize = new Vector2Int(4, 4);
     [SerializeField]
     private Vector2 inventorySlotSize = new Vector2(1, 1);
 
@@ -14,19 +15,26 @@ public class InventoryManager : MonoBehaviour, IItemInteractable
     [SerializeField]
     private ObjectPool pool;
     [SerializeField]
-    private Transform inventory;
+    private GameObject inventory;
+    [SerializeField]
+    private Transform inventoryPivot;
     [SerializeField]
     private InventorySlot slot;
 
     private InventorySlot[] slotArr = null;
 
+    [Space(5)]
+    [SerializeField]
+    private float scrollTime = 0.1f;
+    [SerializeField]
+    private LeanTweenType scrollType = LeanTweenType.linear;
 
     private void Awake()
     {
         slotArr = new InventorySlot[DataManager.GameData.itemStatus.Length];
         for (int i = 0; i < DataManager.GameData.itemStatus.Length; i++) // 아이템별 슬롯 생성
         {
-            InventorySlot newSlot = Instantiate(slot, inventory);
+            InventorySlot newSlot = Instantiate(slot, inventoryPivot);
 
             newSlot.name = DataManager.GameData.itemStatus[i].item.itemData.itemType + " Slot";
             newSlot.SetItem(DataManager.GameData.itemStatus[i].item, i);
@@ -39,11 +47,12 @@ public class InventoryManager : MonoBehaviour, IItemInteractable
         Init();
     }
 
+    private Queue<InventorySlot> activeSlotQueue = new Queue<InventorySlot>(10); // 현재 최대 슬롯은 19칸이지만... 그거 다 찰 일이 있겠어?
     public void Init(bool refreshNumber = true)
     {
         ItemCount[] itemC = DataManager.GameData.itemStatus;
 
-        int activeSlotCount = 0;
+        activeSlotQueue.Clear();
         for (int i = 0; i < slotArr.Length; i++)
         {
             int invCount = itemC[i].GetInventoryCount();
@@ -54,16 +63,42 @@ public class InventoryManager : MonoBehaviour, IItemInteractable
                 if (refreshNumber)
                     slotArr[i].RefreshCount();
 
-                print(activeSlotCount + ", " + new Vector2((activeSlotCount % inventoryGridSize.x) * inventorySlotSize.x, -(int)(activeSlotCount / inventoryGridSize.y) * inventorySlotSize.y));
-                slotArr[i].transform.localPosition = new Vector2((activeSlotCount % inventoryGridSize.x) * inventorySlotSize.x, -(int)(activeSlotCount / inventoryGridSize.y) * inventorySlotSize.y);
-                activeSlotCount++;
+                slotArr[i].transform.localPosition = new Vector2((activeSlotQueue.Count % inventoryGridSize.x) * inventorySlotSize.x, -(activeSlotQueue.Count / inventoryGridSize.y) * inventorySlotSize.y);
+                activeSlotQueue.Enqueue(slotArr[i]);
             }
             else
             {
                 slotArr[i].gameObject.SetActive(false);
             }
         }
+        ScrollActiveChange();
     }
+    public void ScrollActiveChange()
+    {
+        Queue<InventorySlot> activeQueue = new Queue<InventorySlot>(activeSlotQueue);
+        for (int i = 0; i < activeSlotQueue.Count; i++)
+        {
+            InventorySlot invSlot = activeQueue.Dequeue();
+            
+            int lineIndex = i / inventoryGridSize.x;
+            invSlot.ColActive((scrollDepth <= lineIndex && lineIndex < inventoryGridSize.y + scrollDepth)); // 슬롯이 현재 그리드에 들어와 있을 경우에만 true
+        }
+    }
+
+    [SerializeField]
+    private int scrollDepth = 0;
+    private int inventoryTweenID = 0;
+    public void SlotScroll(bool isUp)
+    {
+        scrollDepth = Mathf.Clamp(scrollDepth + (isUp ? -1 : 1), 0, Mathf.CeilToInt(Mathf.Clamp(activeSlotQueue.Count - inventoryGridSize.x * inventoryGridSize.y, 0, int.MaxValue) / (float)inventoryGridSize.x));
+
+        LeanTween.cancel(inventoryTweenID);
+        inventoryTweenID = LeanTween.moveLocalY(inventory, inventorySlotSize.y * scrollDepth, scrollTime).setEase(scrollType).id;
+
+        ScrollActiveChange();
+    }
+
+    /*    
     public void RemoveSlot(DragItem item)
     {
         int activeSlotCount = 0;
@@ -115,6 +150,7 @@ public class InventoryManager : MonoBehaviour, IItemInteractable
             }
         }
     }
+    */
 
     public void InstantiateItem(DragItem item)
     {

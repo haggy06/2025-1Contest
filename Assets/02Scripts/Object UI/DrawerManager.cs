@@ -91,13 +91,16 @@ public class DrawerManager : Singleton<DrawerManager>
     private float drawerDepth = 6f;
     public void ButtonClick(DrawerButton button)
     {
-        foreach(var btn in drawerButtons) // 지금 눌린 버튼을 제외한 모든 버튼 올리기
-        {
-            if (btn.Key != button)
-                btn.Key.ButtonOFF();
-        }
         if (drawerButtons.TryGetValue(button, out int buttonIndex))
         {
+            if (!GameManager.Inst.CanClickDrawer(buttonIndex))
+                return;
+
+            foreach (var btn in drawerButtons) // 지금 눌린 버튼을 제외한 모든 버튼 올리기
+            {
+                if (btn.Key != button)
+                    btn.Key.ButtonOFF();
+            }
             if (isOpen) // 이미 열려 있었을 경우
             {
                 if (buttonIndex == curDrawerIndex) // 열려 있던 서랍이 지금 누른 버튼과 일치할 경우

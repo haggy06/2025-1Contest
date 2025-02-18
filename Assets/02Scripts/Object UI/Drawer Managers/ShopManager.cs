@@ -70,7 +70,8 @@ public class ShopManager : MonoBehaviour
 
     public void Buy(int itemIndex)
     {
-        DataManager.GameData.itemStatus[itemIndex].itemCount++;
+        if (GameManager.Inst.CanBuyItem(DataManager.itemDataList.dataList[itemIndex]))
+            DataManager.GameData.itemStatus[itemIndex].itemCount++;
         /*
         DragItem poolObj = pool.GetPoolObject<DragItem>(item);
         poolObj.Init(new Vector2(Random.Range(-4f, -3f), Random.Range(-3.5f, 2f)), 0f);

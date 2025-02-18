@@ -12,6 +12,18 @@ public class SubmitManager : Singleton<SubmitManager>
     private GameObject _order;
     public GameObject order => _order;
 
+    protected new void Awake()
+    {
+        base.Awake();
+
+        order.transform.localPosition = new Vector2(1.75f, -depth);
+        GameManager.Inst.Subscribe(EventType.Order, NewOrder);
+    }
+    private void NewOrder()
+    {
+        OrderMove(true);
+    }
+
     public void Submit()
     {
         if (_tray.curItem != null)
@@ -46,6 +58,8 @@ public class SubmitManager : Singleton<SubmitManager>
     }
     private void ClearTray()
     {
+        GameManager.Inst.Submit(_tray.curItem.itemData);
+
         TrayMove(true);
         _tray.InteractEnd(_tray.curItem, true);
     }

@@ -24,13 +24,11 @@ public class IngameCanvasManager : CanvasManager
     private Image _dangerGauge;
     private static Image dangerGauge;
 
-    [Header("Drawer Setting")]
+    [Header("Order Setting")]
     [SerializeField]
-    private float drawerTime = 0.5f;
+    private Image itemIcon;
     [SerializeField]
-    private Vector2 closePos;
-    [SerializeField]
-    private Vector2 openPos;
+    private Image itemName;
 
     protected new void Awake()
     {
@@ -48,20 +46,21 @@ public class IngameCanvasManager : CanvasManager
         RefreshDay();
         RefreshMoney();
         RefreshDanger();
-    }
-    
-    public void DrawerPopupOpen(CanvasGroup popup)
-    {
-        popup.blocksRaycasts = true;
-        LeanTween.moveLocal(popup.gameObject, openPos, drawerTime);
-    }
-    public void DrawerPopupClose(CanvasGroup popup)
-    {
-        popup.blocksRaycasts = false;
-        LeanTween.moveLocal(popup.gameObject, openPos, drawerTime);
+
+        GameManager.Inst.Subscribe(EventType.Order, SetOrderScroll);
     }
 
-    
+    private void SetOrderScroll()
+    {
+        ItemData orderItem = GameManager.Inst.orderItem;
+
+        itemIcon.sprite = orderItem.sprite;
+        itemIcon.rectTransform.sizeDelta = orderItem.sprite.bounds.size;
+
+        // Todo : itemName.sprite = orderItem.name;
+
+    }
+        
     public static void RefreshDay()
     {
         dayText.text = "Day " + DataManager.GameData.day;

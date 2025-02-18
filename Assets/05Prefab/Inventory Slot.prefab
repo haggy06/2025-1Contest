@@ -85,7 +85,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 1
   m_SpriteSortPoint: 0
 --- !u!1 &3602180972410347173
 GameObject:
@@ -172,7 +172,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 1
   m_SpriteSortPoint: 0
 --- !u!1 &8608521917806974373
 GameObject:
@@ -330,7 +330,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 4086631082211248988, guid: ddbc0877a27bb1745ac5c6bf2b0e596a, type: 2}
+  - {fileID: -4224872391492077753, guid: df41ea5b4910c0c44aaa4e60da3492fd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -374,8 +374,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 99
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ddbc0877a27bb1745ac5c6bf2b0e596a, type: 2}
-  m_sharedMaterial: {fileID: 4086631082211248988, guid: ddbc0877a27bb1745ac5c6bf2b0e596a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: df41ea5b4910c0c44aaa4e60da3492fd, type: 2}
+  m_sharedMaterial: {fileID: -4224872391492077753, guid: df41ea5b4910c0c44aaa4e60da3492fd, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

@@ -1,0 +1,432 @@
+fileFormatVersion: 2
+guid: f7c34ed6d14fa204ebb54ec52affb47d
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Fade 2D
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 2903
+        width: 1244
+        height: 1084
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 816ccfadae601894880361d40bc92f16
+      internalID: -197304822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rest_of_UI_5
+      rect:
+        serializedVersion: 2
+        x: 2669
+        y: 3315
+        width: 620
+        height: 620
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8b570e18b3ddba4e94a86334f8e0b2a
+      internalID: -634409860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rest_of_UI_6
+      rect:
+        serializedVersion: 2
+        x: 3343
+        y: 3809
+        width: 126
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63f05c5525e3b104699ed40a9b3f988e
+      internalID: -1945050149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scroll Heavy
+      rect:
+        serializedVersion: 2
+        x: 1413
+        y: 2951
+        width: 1122
+        height: 940
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c8146216313f194b962cda59651f29a
+      internalID: -1374976184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bang Icon
+      rect:
+        serializedVersion: 2
+        x: 3347
+        y: 3759
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a02c8b98aae95324fb3c0c35b39bbcd8
+      internalID: -1899354896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scroll Light
+      rect:
+        serializedVersion: 2
+        x: 1413
+        y: 1907
+        width: 1123
+        height: 940
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad96a5c29e37b254b89e756de3d1f210
+      internalID: 1137617434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fade All
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 109
+        width: 1926
+        height: 1084
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d95155eb5e7d3244fb584b9daeb8ff8d
+      internalID: 496484957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech Nobody
+      rect:
+        serializedVersion: 2
+        x: 2149
+        y: 853
+        width: 912
+        height: 236
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e67589625ef5f1e49899a1f1603e46ae
+      internalID: -1368030656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech God
+      rect:
+        serializedVersion: 2
+        x: 2149
+        y: 523
+        width: 912
+        height: 278
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c530b253338b062469839f568cb878a1
+      internalID: -55146231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech Player
+      rect:
+        serializedVersion: 2
+        x: 2149
+        y: 181
+        width: 912
+        height: 278
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c33e90e30442d1744a2efb1f455ecc02
+      internalID: -966311860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rest_of_UI_46
+      rect:
+        serializedVersion: 2
+        x: 3095
+        y: 203
+        width: 38
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 431c3d4a032f84c46bb6e19a491a878c
+      internalID: -1798408930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: bbf9b9a126aba8046bc75a5d9c0506d4
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Bang Icon: -1899354896
+      Fade 2D: -197304822
+      Fade All: 496484957
+      Rest_of_UI_1: -260376548
+      Rest_of_UI_10: -1658326988
+      Rest_of_UI_12: 1195170457
+      Rest_of_UI_13: -551680931
+      Rest_of_UI_14: -1493811619
+      Rest_of_UI_15: 1681593746
+      Rest_of_UI_16: 745177005
+      Rest_of_UI_17: 817857132
+      Rest_of_UI_18: -1962239000
+      Rest_of_UI_19: 391302808
+      Rest_of_UI_2: -679146857
+      Rest_of_UI_20: -657269543
+      Rest_of_UI_21: -1936764967
+      Rest_of_UI_22: 745381393
+      Rest_of_UI_23: 2067915690
+      Rest_of_UI_24: -308452264
+      Rest_of_UI_26: 2035884457
+      Rest_of_UI_27: -1603047720
+      Rest_of_UI_28: 1763334874
+      Rest_of_UI_29: -571135107
+      Rest_of_UI_3: 883289714
+      Rest_of_UI_30: -1053384432
+      Rest_of_UI_31: 1332386253
+      Rest_of_UI_32: 1375747588
+      Rest_of_UI_33: -175025709
+      Rest_of_UI_34: -297849578
+      Rest_of_UI_35: -262157195
+      Rest_of_UI_36: -1673103690
+      Rest_of_UI_37: -2077049540
+      Rest_of_UI_38: 190172869
+      Rest_of_UI_39: -2069513330
+      Rest_of_UI_4: -480425401
+      Rest_of_UI_40: 1125221473
+      Rest_of_UI_41: 771363321
+      Rest_of_UI_46: -1798408930
+      Rest_of_UI_5: -634409860
+      Rest_of_UI_6: -1945050149
+      Rest_of_UI_7: 2016992742
+      Rest_of_UI_9: 388970755
+      Scroll Heavy: -1374976184
+      Scroll Light: 1137617434
+      Speech God: -55146231
+      Speech Nobody: -1368030656
+      Speech Player: -966311860
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

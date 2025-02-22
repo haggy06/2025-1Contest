@@ -39,6 +39,9 @@ public static class DataManager
         {
             _gameData.itemStatus[i] = new ItemCount(_itemDataList.dataList[i]);
         }
+        _gameData.spyNPC.RandomFace();
+        _gameData.spyNPC.RandomOrder();
+        _gameData.spyNPC.npcType = NPCType.Spy;
 
         SaveGameData();
     }
@@ -56,6 +59,8 @@ public static class DataManager
         }
     }
 
+    // AudioManager에서 PlayerPrefs 사용하기로 결정!
+    /*
     private static SettingData _settingData = null;
     public static SettingData SettingData
     {
@@ -77,6 +82,7 @@ public static class DataManager
     {
         FileSaveLoader<SettingData>.SaveData(FileName.SettingData.ToString(), _settingData);
     }
+    */
 }
 
 public enum FileName

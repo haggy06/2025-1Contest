@@ -1,11 +1,18 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class TalkManager : MonoBehaviour
+public class TalkManager : Singleton<TalkManager>
 {
-    private const int tutorialIndex = 4;
+    [SerializeField]
+    private AudioClip[] endBGMs;
+    [SerializeField]
+    private AudioClip talkNextSound;
+    [SerializeField]
+    private bool _writing = false;
+    public bool writing => _writing;
 
     [SerializeField]
     private TalkExcel talkExcel;
@@ -18,183 +25,350 @@ public class TalkManager : MonoBehaviour
 
     [Space(5)]
     [SerializeField]
-    private float fadeTime = 0.5f;
+    private IngameCanvasManager canvasManager;
     [SerializeField]
-    private Image block_2D;
-    [SerializeField]
-    private Image block_3D;
+    private ShopManager shop;
 
     [Header("Tutorial Refs")]
     [SerializeField]
     private QuestManager questManager;
+    [SerializeField]
+    private ItemData orderItem;
+    [SerializeField]
+    private ItemData buyItem;
+
+    [Header("Spy")]
+    [SerializeField]
+    private string[] spyExplain;
 
     private int curIndex = 0;
-    private TalkSheet curTalk;
+    private TalkSheet _curTalk;
+    public TalkSheet curTalk => _curTalk;
+    private SheetType _curSheet = SheetType.Story;
 
-    private void Awake()
+    protected new void Awake()
     {
+        base.Awake();
         foreach (var talk in talkUI)
         {
             talk.gameObject.SetActive(false);
         }
 
-        TalkStart(0);
-        GameManager.Inst.Subscribe(EventType.NextTutorial, NextTutorial);
+        if (DataManager.GameData.day == 1) // 첫째날일 경우
+            TalkStart(0);
+
+        GameManager.Inst.Subscribe(EventType.TutorialClear, NextTutorial);
+
+        GameManager.Inst.Subscribe(EventType.End, End);
+    }
+    private void End()
+    {
+        switch (GameManager.Inst.endingType)
+        {
+            case StoryTalkIndex.TrapEnd:
+                AudioManager.Inst.ChangeBGM(endBGMs[0]);
+                break;
+            case StoryTalkIndex.BankruptcyEnd:
+                AudioManager.Inst.ChangeBGM(endBGMs[1]);
+                break;
+            case StoryTalkIndex.NormalEnd:
+                AudioManager.Inst.ChangeBGM(endBGMs[2]);
+                break;
+            case StoryTalkIndex.HappyEnd:
+                AudioManager.Inst.ChangeBGM(endBGMs[3]);
+                break;
+        }
+
+        Invoke("EndTalk", 0f);
+    }
+    private void EndTalk()
+    {
+        TalkStart((int)GameManager.Inst.endingType);
     }
 
     private void NextTutorial()
     {
-        if (curTalk.next)
+        print("NextTutorial");
+        if (_curTalk.next)
         {
             TalkStart(curIndex + 1);
-            GameManager.Inst.ChangeTutorial((TutorialState)curTalk.parameter); // 엑셀 파라미터를 여기에 쓰자
+            GameManager.Inst.TutorialChange((TutorialState)_curTalk.parameter); // 엑셀 파라미터를 여기에 쓰자
         }
         else
         {
-            talkUI[curTalk.speaker].gameObject.SetActive(false);
-            curTalk = null;
+            talkUI[_curTalk.speaker].gameObject.SetActive(false);
+            _curTalk = null;
 
             GameManager.Inst.TutorialClear();
         }
     }
 
-    public void TalkStart(int talkIndex)
+    public event System.Action<Speaker> TalkFinish;
+    public void TalkStart(int talkIndex, SheetType sheetType = SheetType.Story)
     {
         StopAllCoroutines();
 
-        if (curTalk != null)
-        {
-            talkUI[curTalk.speaker].gameObject.SetActive(false);
-        }
-
+        _curSheet = sheetType;
         curIndex = talkIndex;
-        curTalk = talkExcel.Text[curIndex];
 
-        if (curTalk.startInvoke && !curTalk.methodName.Equals(""))
+        if (_curTalk != null)
         {
-            Invoke(curTalk.methodName, 0f);
+            talkUI[_curTalk.speaker].gameObject.SetActive(false);
         }
 
-        talkUI[curTalk.speaker].gameObject.SetActive(true);
-        talkUI[curTalk.speaker].ChangeFace(face[curTalk.face]);
+        if (_curSheet == SheetType.Story)
+            _curTalk = talkExcel.StoryTalk[curIndex];
+        else if (_curSheet == SheetType.NPC)
+            _curTalk = talkExcel.NPCTalk[curIndex];
+        else if (_curSheet == SheetType.Info)
+            _curTalk = talkExcel.InfoTalk[curIndex];
+
+        if (_curTalk.startInvoke && !_curTalk.methodName.Equals(""))
+        {
+            Invoke(_curTalk.methodName, 0f);
+        }
+
+        talkUI[_curTalk.speaker].gameObject.SetActive(true);
+        talkUI[_curTalk.speaker].ChangeFace(face[_curTalk.face]);
 
         StartCoroutine("WriteTextCor");
     }
+    public void TalkStart(TalkSheet sheet, int talkIndex)
+    {
+        StopAllCoroutines();
 
-    private bool writing = false;
+        curIndex = talkIndex;
+
+        if (_curTalk != null)
+        {
+            talkUI[_curTalk.speaker].gameObject.SetActive(false);
+        }
+
+        _curTalk = sheet;
+
+        talkUI[_curTalk.speaker].gameObject.SetActive(true);
+        talkUI[_curTalk.speaker].ChangeFace(face[_curTalk.face]);
+
+        StartCoroutine("WriteTextCor");
+    }
     private IEnumerator WriteTextCor()
-    {        
-        string text = curTalk.text;
+    {
+        string text = _curTalk.text;
 
-        talkUI[curTalk.speaker].text.text = "";
-        writing = true;
+        talkUI[_curTalk.speaker].text.text = "";
+        _writing = true;
 
         for (int i = 0; i < text.Length; i++)
         {
             if (text != null)
             {
-                talkUI[curTalk.speaker].text.text += text[i];
+                talkUI[_curTalk.speaker].text.text += text[i];
 
-                if (text[i] != ' ') // 띄어쓰기가 아니었을 경우 잠시 대기
+                if (text[i] == '\\') // \n일 테니 한 단어 더 출력
+                    talkUI[_curTalk.speaker].text.text += text[++i];
+                else if (text[i] != ' ') // 띄어쓰기가 아니었을 경우 잠시 대기
                     yield return YieldReturn.waitForFixedUpdate;
             }
         }
 
-        writing = false;
+        _writing = false;
     }
 
     public void InstantWriteText()
     {
         StopCoroutine("WriteTextCor");
-        talkUI[curTalk.speaker].text.text = curTalk.text;
+        talkUI[_curTalk.speaker].text.text = _curTalk.text;
 
-        writing = false;
+        _writing = false;
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && curTalk != null)
+        if (Input.GetMouseButtonDown(0))
         {
-            if (curTalk.speaker <= (int)Speaker.Info)
-                ScreenClick();
+            if (_curTalk != null)
+            {
+                TalkInteract(_curTalk.speaker <= (int)Speaker.Info);
+            }
         }
     }
-    public void ScreenClick()
+
+    TalkSheet lastSheet = null;
+    public void TalkInteract(bool nextTalk)
     {
-        if (writing)
+        lastSheet = _curTalk;
+
+        if (_writing)
             InstantWriteText();
         else
         {
-            if (!curTalk.startInvoke && !curTalk.methodName.Equals(""))
+            if (GameManager.Inst.tutorialState == TutorialState.None || !GameManager.Inst.TutorialCheck(TutorialState.JustTalk))
             {
-                Invoke(curTalk.methodName, 0f);
-            }
+                bool isMethod = !_curTalk.startInvoke && !_curTalk.methodName.Equals("");
+                if (isMethod)
+                    Invoke(_curTalk.methodName, 0f);
 
-            if (curTalk.next)
-                TalkStart(curIndex + 1);
+                if (nextTalk)
+                {
+                    AudioManager.Inst.PlaySFX(talkNextSound);
+                    StartCoroutine("NextTalk");
+                }
+            }
+        }
+    }
+    private IEnumerator NextTalk()
+    {
+        yield return null;
+        if (lastSheet == _curTalk)
+        {
+            if (_curTalk.next)
+                TalkStart(curIndex + 1, _curSheet);
             else
             {
-                talkUI[curTalk.speaker].gameObject.SetActive(false);
-                curTalk = null;
+                TalkFinish?.Invoke((Speaker)_curTalk.speaker);
+
+                talkUI[_curTalk.speaker].gameObject.SetActive(false);
+
+                _curTalk = null;
             }
         }
     }
 
     #region _Excel Methods_
+
+    private void NPCTalk()
+    {
+        TalkStart(_curTalk.parameter, SheetType.NPC);
+    }
+    private void Clue()
+    {
+        if (!DataManager.GameData.DangerBySpy() && Random.Range(0, 10) < 3) // 스파이가 위협적일 때 30퍼 확률로 단서 줌(or 까먹음)
+        {
+            SpyWarning_NPC();
+        }
+        else
+        {
+            TalkStart(_curTalk.parameter - 1, SheetType.NPC);
+        }
+    }
+    private void SpyWarning_Info()
+    {
+        #region _Deep Copy_
+        TalkSheet originalTalk = talkExcel.InfoTalk[_curTalk.parameter]; // 파라미터를 목표 인덱스로 사용
+        TalkSheet newTalk = new TalkSheet();
+
+        newTalk.next = originalTalk.next;
+        newTalk.speaker = originalTalk.speaker;
+        newTalk.face = originalTalk.face;
+        newTalk.text = spyExplain[DataManager.GameData.spyNPC.faceIndex - 3] + originalTalk.text;
+        newTalk.methodName = originalTalk.methodName;
+        newTalk.parameter = originalTalk.parameter;
+        newTalk.startInvoke = originalTalk.startInvoke;
+        #endregion
+
+        DataManager.GameData.isSpyWkown = true;
+        TalkStart(newTalk, _curTalk.parameter);
+    }
+    private void SpyWarning_NPC()
+    {
+        #region _Deep Copy_
+        TalkSheet originalTalk = talkExcel.NPCTalk[_curTalk.parameter]; // 파라미터를 목표 인덱스로 사용
+        TalkSheet newTalk = new TalkSheet();
+
+        newTalk.next = originalTalk.next;
+        newTalk.speaker = originalTalk.speaker;
+        newTalk.face = originalTalk.face;
+        newTalk.text = spyExplain[DataManager.GameData.spyNPC.faceIndex - 3] + originalTalk.text;
+        newTalk.methodName = originalTalk.methodName;
+        newTalk.parameter = originalTalk.parameter;
+        newTalk.startInvoke = originalTalk.startInvoke;
+        #endregion
+
+        DataManager.GameData.isSpyWkown = true;
+        TalkStart(newTalk, _curTalk.parameter);
+    }
+
+    private void Request()
+    {
+        if (DataManager.GameData.DangerBySpy()) // 스파이 땜시 위험할 경우
+        {
+            if (!DataManager.GameData.isSpyWkown) // 스파이를 모르고 있거나 주문을 들어줬을 경우
+            {
+                TalkStart((int)NPCTalkIndex.Spy_UnknownSpy, SheetType.NPC);
+            }
+            else if (DataManager.GameData.money < 5000) // 돈이 모자랄 경우
+            {
+                TalkStart((int)NPCTalkIndex.Spy_LowMoney, SheetType.NPC);
+            }
+            else if (DataManager.GameData.isSpyOwnered) // 스파이 퀘스트를 들어 줬었을 경우
+            {
+                TalkStart((int)NPCTalkIndex.Spy_Accept, SheetType.NPC);
+            }
+        }
+        else
+        {
+            TalkStart((int)NPCTalkIndex.Spy_UnknownSpy, SheetType.NPC);
+        }
+    }
+    private void KillSpy()
+    {
+        DataManager.GameData.money -= 5000;
+        IngameCanvasManager.RefreshMoney();
+
+        DataManager.GameData.isSpyDead = true;
+    }
+
+    private void Restock()
+    {
+        shop.Init();
+    }
+
+    private void MoneyAdd()
+    {
+        DataManager.GameData.money += _curTalk.parameter;
+        IngameCanvasManager.RefreshMoney();
+    }
+
     private void TutorialStart()
     {
-        questManager.OrderStart(curIndex);
-        GameManager.Inst.ChangeTutorial(TutorialState.OrderGet);
+        canvasManager.Blind(false);
 
-        TalkStart(tutorialIndex);
+        questManager.OrderStart(orderItem);
+        GameManager.Inst.TutorialStart();
+
+        TalkStart((int)StoryTalkIndex.Tutorial);
+    }
+    private void TutorialFinish()
+    {
+        GameManager.Inst.TutorialClear();
     }
 
     private void ScreenHide()
     {
-        switch (curTalk.parameter)
+        switch (_curTalk.parameter)
         {
             case 0:
-                block_2D.color = Color.black;
-                block_3D.color = Color.black;
+                canvasManager.ScreenFade(true, true);
                 break;
 
             case 1:
-                block_2D.color = Color.black;
-                break;
-
-            case 2:
-                block_3D.color = Color.black;
+                canvasManager.Blind(true, true);
                 break;
 
             default:
                 break;
         }
     }
-
-    private int fadeTweenID_2D = 0;
-    private int fadeTweenID_3D = 0;
     private void ScreenFadeOut()
     {
-        switch (curTalk.parameter)
+        switch (_curTalk.parameter)
         {
             case 0:
-                LeanTween.cancel(fadeTweenID_2D);
-                LeanTween.cancel(fadeTweenID_3D);
-
-                fadeTweenID_2D = LeanTween.alpha(block_2D.rectTransform, 0f, block_2D.color.a * fadeTime).id;
-                fadeTweenID_3D = LeanTween.alpha(block_3D.rectTransform, 0f, block_3D.color.a * fadeTime).id;
+                canvasManager.ScreenFade(false);
                 break;
 
             case 1:
-                LeanTween.cancel(fadeTweenID_2D);
-                
-                fadeTweenID_2D = LeanTween.alpha(block_2D.rectTransform, 0f, block_2D.color.a * fadeTime).id;
-                break;
-
-            case 2:
-                LeanTween.cancel(fadeTweenID_3D);
-
-                fadeTweenID_3D = LeanTween.alpha(block_3D.rectTransform, 0f, block_3D.color.a * fadeTime).id;
+                canvasManager.Blind(false);
                 break;
 
             default:
@@ -203,31 +377,31 @@ public class TalkManager : MonoBehaviour
     }
     private void ScreenFadeIn()
     {
-        switch (curTalk.parameter)
+        switch (_curTalk.parameter)
         {
             case 0:
-                LeanTween.cancel(fadeTweenID_2D);
-                LeanTween.cancel(fadeTweenID_3D);
-
-                fadeTweenID_2D = LeanTween.alpha(block_2D.rectTransform, 0f, (1f - block_2D.color.a) * fadeTime).id;
-                fadeTweenID_3D = LeanTween.alpha(block_2D.rectTransform, 0f, (1f - block_2D.color.a) * fadeTime).id;
+                canvasManager.ScreenFade(true);
                 break;
 
             case 1:
-                LeanTween.cancel(fadeTweenID_2D);
-
-                fadeTweenID_2D = LeanTween.alpha(block_2D.rectTransform, 0f, (1f - block_2D.color.a) * fadeTime).id;
-                break;
-
-            case 2:
-                LeanTween.cancel(fadeTweenID_3D);
-
-                fadeTweenID_3D = LeanTween.alpha(block_2D.rectTransform, 0f, (1f - block_2D.color.a) * fadeTime).id;
+                canvasManager.Blind(true);
                 break;
 
             default:
                 break;
         }
     }
+
+    private void MoveScene()
+    {
+        canvasManager.MoveScene(_curTalk.parameter);
+    }
     #endregion
+    protected override void SceneChanged(Scene replacedScene, Scene newScene) { }
+}
+public enum SheetType
+{
+    Story,
+    NPC,
+    Info,
 }

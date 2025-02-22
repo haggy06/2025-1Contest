@@ -27,6 +27,9 @@ public enum Speaker
     Tutorial1,
     Tutorial2,
     Tutorial3,
+
+    Ingame_NPC,
+    Ingame_Player,
 }
 public enum Face
 {
@@ -37,4 +40,27 @@ public enum Face
     Smile,
     Laugh,
     Sorry
+}
+
+public enum StoryTalkIndex
+{
+    Prolog = 0,
+    Tutorial = 20,
+
+    TrapEnd = 46,
+    BankruptcyEnd = 50,
+    NormalEnd = 54,
+    HappyEnd = 61,
+}
+
+public enum NPCTalkIndex
+{
+    Regular_First = 9,
+    Regular_Second = 12,
+
+    Assasine = 19,
+
+    Spy_LowMoney = 24,
+    Spy_UnknownSpy = 26,
+    Spy_Accept = 28,
 }

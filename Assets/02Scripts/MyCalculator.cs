@@ -1,6 +1,7 @@
 using System;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.UI;
 
 public static class MyCalculator
 {
@@ -20,5 +21,13 @@ public static class MyCalculator
     public static ItemCount GetItemCount(DragItem item)
     {
         return DataManager.GameData.itemStatus[item.itemData.itemIndex];
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static void ChangeUISprite(Image image, Sprite sprite)
+    {
+
+        image.sprite = sprite;
+        image.rectTransform.sizeDelta = sprite.bounds.size * 100f;
     }
 }

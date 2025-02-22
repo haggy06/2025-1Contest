@@ -280,7 +280,7 @@ TextureImporter:
       name: Shop
       rect:
         serializedVersion: 2
-        x: 65
+        x: 35
         y: 633
         width: 610
         height: 687
@@ -490,8 +490,8 @@ TextureImporter:
       name: Shop Price
       rect:
         serializedVersion: 2
-        x: 688
-        y: 863
+        x: 789
+        y: 991
         width: 356
         height: 50
       alignment: 0
@@ -512,7 +512,7 @@ TextureImporter:
       name: Info
       rect:
         serializedVersion: 2
-        x: 68
+        x: 49
         y: 62
         width: 579
         height: 546
@@ -537,12 +537,19 @@ TextureImporter:
         x: 678
         y: 63
         width: 537
-        height: 547
+        height: 523
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
+      outline:
+      - - {x: 268.5, y: 273.5}
+        - {x: 187.5, y: 273.5}
+        - {x: 156.5, y: 246.5}
+        - {x: -209.5, y: 245.5}
+        - {x: -268.5, y: 273.5}
+        - {x: -268.5, y: -273.5}
+        - {x: 268.5, y: -273.5}
       physicsShape: []
       tessellationDetail: 0
       bones: []
@@ -886,8 +893,8 @@ TextureImporter:
       name: Slot Blind
       rect:
         serializedVersion: 2
-        x: 1501
-        y: 897
+        x: 707
+        y: 589
         width: 409
         height: 255
       alignment: 0
@@ -908,8 +915,8 @@ TextureImporter:
       name: Soldout Sticker
       rect:
         serializedVersion: 2
-        x: 1616
-        y: 765
+        x: 801
+        y: 870
         width: 179
         height: 88
       alignment: 0
@@ -930,8 +937,8 @@ TextureImporter:
       name: Money
       rect:
         serializedVersion: 2
-        x: 1526
-        y: 564
+        x: 1520
+        y: 366
         width: 354
         height: 167
       alignment: 0
@@ -953,7 +960,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1775
-        y: 1321
+        y: 1326
         width: 57
         height: 61
       alignment: 9
@@ -966,6 +973,204 @@ TextureImporter:
       bones: []
       spriteID: 440ea1456eb81ee40b82e27238ecef5d
       internalID: -1361602415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Name_BlueRing
+      rect:
+        serializedVersion: 2
+        x: 1549
+        y: 1105
+        width: 238
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be88c1817229e3d4f96f13f96f69ca69
+      internalID: -2047642947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Name_RedRing
+      rect:
+        serializedVersion: 2
+        x: 1549
+        y: 1043
+        width: 237
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9551bfedd3f27040a381898996c2256
+      internalID: 2067017579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Name_BlueLace
+      rect:
+        serializedVersion: 2
+        x: 1549
+        y: 977
+        width: 273
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 620f5143f821b1549a8ff5d4f08c11fe
+      internalID: -527940101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Name_RedLace
+      rect:
+        serializedVersion: 2
+        x: 1549
+        y: 917
+        width: 273
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9066716a94f51b441876058f0859a4e5
+      internalID: -925191767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Name_DarkScroll
+      rect:
+        serializedVersion: 2
+        x: 1549
+        y: 855
+        width: 230
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f15d4801a46e4741a29f3c48c627e67
+      internalID: -319306919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Name_BloodBottle
+      rect:
+        serializedVersion: 2
+        x: 1549
+        y: 792
+        width: 231
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c93343c89701e6542bd6ece9e246f304
+      internalID: 223388393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Name_YellowBottle
+      rect:
+        serializedVersion: 2
+        x: 1549
+        y: 731
+        width: 193
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66f90525541b1ed41a0aa694c5a6908d
+      internalID: 1055445930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Name_PurpleBottle
+      rect:
+        serializedVersion: 2
+        x: 1548
+        y: 668
+        width: 195
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2782f29c58084b7478b5014ee1344c6d
+      internalID: 350337066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Combine
+      rect:
+        serializedVersion: 2
+        x: 802
+        y: 1374
+        width: 214
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02868dcfe9344ba42a5e1ff47bef796a
+      internalID: -1538168573
       vertices: []
       indices: 
       edges: []
@@ -985,6 +1190,7 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       BGM: -843056877
+      Combine: -1538168573
       Drawer Inside_13: -1952268014
       Drawer Inside_14: 1970176280
       Drawer Inside_17: -673090524
@@ -992,7 +1198,6 @@ TextureImporter:
       Drawer Inside_19: 1131286503
       Drawer Inside_24: 655515603
       Drawer Inside_25: -931446444
-      Drawer Inside_6: -398179401
       Exit: 1275265511
       Forge: -1971841854
       Forge Cushion: 2090375756
@@ -1002,15 +1207,23 @@ TextureImporter:
       Info Crystal: -1532342963
       Money: 1272794262
       Name_Blood: -242740758
+      Name_BloodBottle: 223388393
       Name_BlueGem: 41108341
+      Name_BlueLace: -527940101
+      Name_BlueRing: -2047642947
       Name_Bottle: 331382397
+      Name_DarkScroll: -319306919
       Name_Flower: 330097445
       Name_Ink: 210327034
       Name_Necklace: -1482063655
+      Name_PurpleBottle: 350337066
       Name_RedGem: -1356055051
+      Name_RedLace: -925191767
+      Name_RedRing: 2067017579
       Name_Ring: -460114637
       Name_Scroll: -1484571846
       Name_Slime: 1087831266
+      Name_YellowBottle: -398179401
       Normal Down Btn: -1773724921
       Normal Up Btn: -1270158810
       Order 1: 1993013495

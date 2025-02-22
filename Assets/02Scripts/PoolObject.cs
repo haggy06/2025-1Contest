@@ -7,24 +7,25 @@ public class PoolObject : MonoBehaviour
     [HideInInspector]
     public ObjectPool parentPool;
 
+    protected void Awake()
+    {
+        GameManager.Inst.Subscribe(EventType.DayStart, DayStart);
+    }
+    protected virtual void DayStart()
+    {
+        if (isOut)
+            ReturnToPool();
+    }
+
     protected virtual void ObjectReturned()
     {
         gameObject.SetActive(false);
     }
-    protected virtual void DestroyByBomb()
-    {
-        ReturnToPool();
-    }
 
     public virtual void ReturnToPool()
     {
-        if (transform.root != transform && transform.root.TryGetComponent<PoolObject>(out _))
-        {
-            Debug.Log("자식 형태의 PoolObject는 반납되지 않음");
-            return;
-        }
-
         ObjectReturned();
+        isOut = false;
 
         try
         {
@@ -36,6 +37,8 @@ public class PoolObject : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    protected bool isOut = false;
     public virtual void Init(Vector2 position, float angle = 0f)
     {
         transform.position = position;
@@ -44,6 +47,7 @@ public class PoolObject : MonoBehaviour
     }
     public virtual void ExitFromPool()
     {
+        isOut = true;
         gameObject.SetActive(true);
     }
 }

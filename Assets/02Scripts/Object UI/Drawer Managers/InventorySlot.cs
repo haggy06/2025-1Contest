@@ -27,6 +27,7 @@ public class InventorySlot : MonoBehaviour
     {
         ItemCount itemCount = DataManager.GameData.itemStatus[_slotIndex];
         itemCount.outCount++;
+        print(itemCount.outCount);
 
         if (itemCount.GetInventoryCount() <= 0)
         {
@@ -42,7 +43,7 @@ public class InventorySlot : MonoBehaviour
     public void SetItem(DragItem item, int slotIndex)
     {
         _item = item;
-        icon.sprite = item.itemData.sprite;
+        icon.sprite = item.itemData.iconSprite;
 
         _slotIndex = slotIndex;
         RefreshCount();

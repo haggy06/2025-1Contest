@@ -6,10 +6,15 @@ using UnityEngine.UIElements;
 [RequireComponent(typeof(BoxCollider2D))]
 public class ShopSlot : ObjectTriggerButton
 {
+    [SerializeField, Space(5)]
+    private BoxCollider2D col;
+
     [SerializeField]
     private AudioClip failSound;
     [SerializeField]
     private GameObject soldOut;
+    [SerializeField]
+    private SpriteRenderer nameSprite;
     [SerializeField]
     private SpriteRenderer icon;
     [SerializeField]
@@ -20,16 +25,14 @@ public class ShopSlot : ObjectTriggerButton
     private ItemData _item;
     public ItemData item => _item;
 
-    private BoxCollider2D col;
     protected new void Awake()
     {
         base.Awake();
-        col = GetComponent<BoxCollider2D>();
 
-        icon.sprite = _item.sprite;
+        nameSprite.sprite = _item.nameSprite;
+        icon.sprite = _item.iconSprite;
+
         price.text = MyCalculator.AddComma(_item.price);
-
-        ResetStock();
     }
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public void ColActive(bool active)
@@ -44,7 +47,7 @@ public class ShopSlot : ObjectTriggerButton
             sRenderer.sprite = normalSprite;
         sRenderer.color = normalColor;
 
-        if (_item.price < DataManager.GameData.money)
+        if (_item.price <= DataManager.GameData.money)
         {
             if (IsThereStock())
             {
@@ -57,22 +60,17 @@ public class ShopSlot : ObjectTriggerButton
                 GetStoke();
                 if (!IsThereStock())
                 {
-                    ColActive(false);
-                    soldOut.SetActive(true);
+                    SoldOut();
                 }
             }
         }
-    }
-    protected override void PlaySound()
-    {
-        if (_item.price < DataManager.GameData.money)
-        {
-            // Todo 소리 재생
-        }
         else
-        {
-
-        }
+            AudioManager.Inst.PlaySFX(failSound);
+    }
+    public void SoldOut()
+    {
+        ColActive(false);
+        soldOut.SetActive(true);
     }
 
     private int curStock;

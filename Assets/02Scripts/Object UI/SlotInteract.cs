@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class SlotInteract : MonoBehaviour, IItemInteractable
 {
@@ -15,10 +14,23 @@ public class SlotInteract : MonoBehaviour, IItemInteractable
     [SerializeField]
     private DragItem _curItem;
     public DragItem curItem => _curItem;
+    private void Awake()
+    {
+        GameManager.Inst.Subscribe(EventType.DayStart, Clear);
+    }
+    private void Clear()
+    {
+        _curItem = null;
+        CanInteract = true;
+
+        InteractChanged?.Invoke();
+    }
 
     public void UseItem()
     {
         InteractEnd(_curItem, true);
+
+
     }
 
     public bool InteractStart(DragItem item)
@@ -79,7 +91,13 @@ public class SlotInteract : MonoBehaviour, IItemInteractable
         if (curItem == item)
         {
             if (destroyItem)
+            {
+                print("ªË¡¶");
+                DataManager.GameData.itemStatus[_curItem.itemData.itemIndex].DelectItem();
+                print(DataManager.GameData.itemStatus[_curItem.itemData.itemIndex].itemCount);
+
                 _curItem.ReturnToPool();
+            }
 
             _curItem = null;
             InteractChanged?.Invoke();

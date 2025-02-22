@@ -42,7 +42,7 @@ public class ObjectTriggerButton : ObjectButtonBase
     }
     protected virtual void PlaySound()
     {
-        //Todo : 소리 출력
+        AudioManager.Inst.PlaySFX(clickSound);
     }
 
     protected override void ButtonPress()

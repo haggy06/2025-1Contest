@@ -1,7 +1,4 @@
-using System.Collections.Generic;
-using UnityEditor.Tilemaps;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class ShopManager : MonoBehaviour
 {
@@ -20,13 +17,33 @@ public class ShopManager : MonoBehaviour
     private float scrollTime = 0.2f;
     [SerializeField]
     private LeanTweenType scrollType = LeanTweenType.linear;
-    private void Start()
+    private void Awake()
     {
         Init();
+
+        GameManager.Inst.Subscribe(EventType.TutorialStart, TutorialSet);
+        GameManager.Inst.Subscribe(EventType.TutorialFinish, Init);
+        GameManager.Inst.Subscribe(EventType.DayStart, Init);
     }
-    private void Init()
+    private void TutorialSet()
     {
+        DataManager.GameData.itemStatus[9].itemCount++;
+        for (int i = 0; i < slotArr.Length; i++)
+        {
+            if (GameManager.Inst.tutorialItem != slotArr[i].item)
+                slotArr[i].SoldOut();
+        }
+    }
+    /*
+            if (slotArr[curScrollIndex].isSoldOut)
+                slotArr[curScrollIndex].SoldOut();
+    */
+    public void Init()
+    {
+        DataManager.GameData.todayBuyCount = 0;
+
         slotScroll.transform.localPosition = Vector3.zero;
+        curScrollIndex = 0;
 
         for (int i = 0; i < slotArr.Length; i++)
         {
@@ -70,8 +87,11 @@ public class ShopManager : MonoBehaviour
 
     public void Buy(int itemIndex)
     {
-        if (GameManager.Inst.CanBuyItem(DataManager.itemDataList.dataList[itemIndex]))
-            DataManager.GameData.itemStatus[itemIndex].itemCount++;
+        DataManager.GameData.itemStatus[itemIndex].itemCount++;
+        DataManager.GameData.todayBuyCount++;
+
+        GameManager.Inst.TutorialCheck(TutorialState.Shopping);
+
         /*
         DragItem poolObj = pool.GetPoolObject<DragItem>(item);
         poolObj.Init(new Vector2(Random.Range(-4f, -3f), Random.Range(-3.5f, 2f)), 0f);

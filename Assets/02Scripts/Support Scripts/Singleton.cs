@@ -39,6 +39,8 @@ public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     protected void OnDestroy()
     {
         SceneManager.activeSceneChanged -= SceneChanged;
+        if (instance == this)
+            instance = null;
     }
     protected void Awake()
     {

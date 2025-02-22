@@ -9,23 +9,39 @@ public class SubmitManager : Singleton<SubmitManager>
     private SlotInteract _tray;
     public SlotInteract tray => _tray;
     [SerializeField]
+    private AudioClip traySound;
+
+    [Space(5)]
+    [SerializeField]
     private GameObject _order;
     public GameObject order => _order;
 
+    [SerializeField]
+    private QuestManager _questManager;
     protected new void Awake()
     {
         base.Awake();
 
-        order.transform.localPosition = new Vector2(1.75f, -depth);
         GameManager.Inst.Subscribe(EventType.Order, NewOrder);
+        GameManager.Inst.Subscribe(EventType.DayStart, Init);
     }
+    private void Init()
+    {
+        _tray.transform.localPosition = new Vector2(-3.9f, 0f);
+        order.transform.localPosition = new Vector2(-1.75f, -depth);
+    }
+
     private void NewOrder()
     {
         OrderMove(true);
     }
 
+    bool isTrayMoving = false;
     public void Submit()
     {
+        if (!GameManager.Inst.CanClickBell() || isTrayMoving)
+            return;
+
         if (_tray.curItem != null)
         {
             Debug.Log(_tray.curItem.gameObject.name + " 제출");
@@ -47,21 +63,26 @@ public class SubmitManager : Singleton<SubmitManager>
 
     public void TrayMove(bool isUp)
     {
+        AudioManager.Inst.PlaySFX(traySound);
         if (isUp)
         {
             LeanTween.moveLocalY(_tray.gameObject, 0f, trayMoveTime).setEase(trayTweenType);
         }
         else
         {
+            isTrayMoving = true;
             LeanTween.moveLocalY(_tray.gameObject, -depth, trayMoveTime).setEase(trayTweenType).setOnComplete(ClearTray); // 내렸다 바로 다시 올리기
         }
     }
     private void ClearTray()
     {
-        GameManager.Inst.Submit(_tray.curItem.itemData);
+        GameManager.Inst.TutorialCheck(TutorialState.Bell);
+        isTrayMoving = false;
+
+        _questManager.SubmitStart(_tray.curItem.itemData);
+        _tray.InteractEnd(_tray.curItem, true);
 
         TrayMove(true);
-        _tray.InteractEnd(_tray.curItem, true);
     }
 
     public void OrderMove(bool isUp)
@@ -95,6 +116,10 @@ public class SubmitManager : Singleton<SubmitManager>
         trayTweenID = LeanTween.moveLocalY(gameObject, 0f, Mathf.Abs(transform.localPosition.y) / depth * trayMoveTime).setEase(trayTweenType).id;
     }
     */
+    public void TutoCheck()
+    {
+        GameManager.Inst.TutorialCheck(TutorialState.OrderCheck);
+    }
 
     private void RemoveItem()
     {

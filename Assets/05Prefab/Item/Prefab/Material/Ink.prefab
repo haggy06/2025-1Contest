@@ -185,7 +185,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e096736d7da0eab42beaf26704fe3d32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyWhenBomb: 1
   parentPool: {fileID: 0}
   <Active>k__BackingField: 1
+  upSound: {fileID: 8300000, guid: 3250de2eb0b0812439247d95844f1fa9, type: 3}
+  downSound: {fileID: 8300000, guid: 45d85ffccb804dc4487e93f5fc1eb68f, type: 3}
   _itemData: {fileID: 11400000, guid: 08b9fb1cf6f5a4d4eb24f10a2c05b40b, type: 2}

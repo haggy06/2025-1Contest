@@ -45,3 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dontDestroy: 1
+  _tutorialState: 0
+  _tutorialItem: {fileID: 11400000, guid: 08b9fb1cf6f5a4d4eb24f10a2c05b40b, type: 2}

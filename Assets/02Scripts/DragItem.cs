@@ -2,15 +2,16 @@ using System.Collections;
 using System.Drawing;
 using System.Runtime.CompilerServices;
 using UnityEngine;
-using UnityEngine.UIElements;
-using static UnityEditor.Progress;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 
 [RequireComponent (typeof(PolygonCollider2D), typeof(Rigidbody2D), typeof(SpriteRenderer))]
 public class DragItem : PoolObject, IDragable
 {
     [field: SerializeField]
     public bool Active { get; set; }
+    [SerializeField]
+    private AudioClip upSound;
+    [SerializeField]
+    private AudioClip downSound;
     [SerializeField]
     private ItemData _itemData;
     public ItemData itemData => _itemData;
@@ -23,8 +24,9 @@ public class DragItem : PoolObject, IDragable
 
     private SpriteRenderer sRenderer;
 
-    private void Awake()
+    private new void Awake()
     {
+        base.Awake();
         _rigid2D = GetComponent<Rigidbody2D>();
         sRenderer = GetComponent<SpriteRenderer>();
     }
@@ -83,6 +85,8 @@ public class DragItem : PoolObject, IDragable
 
     public void DragStart()
     {
+        AudioManager.Inst.PlaySFX(upSound);
+
         _rigid2D.bodyType = RigidbodyType2D.Dynamic;
         InteractExit();
 
@@ -132,6 +136,8 @@ public class DragItem : PoolObject, IDragable
 
     public void DragEnd()
     {
+        AudioManager.Inst.PlaySFX(downSound);
+
         isHolding = false;
         StopCoroutine("DragCor");
 
@@ -254,11 +260,5 @@ public class DragItem : PoolObject, IDragable
         transform.eulerAngles = Vector3.forward * dragStartRot;
 
         RemoveVelocity();
-    }
-
-    [ContextMenu("Test")]
-    public void ItemDicSaveTest()
-    {
-        DataManager.SaveGameData();
     }
 }

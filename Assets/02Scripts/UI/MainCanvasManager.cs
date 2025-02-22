@@ -21,9 +21,9 @@ public class MainCanvasManager : CanvasManager
     {
         base.Awake();
         bgmSlider.onValueChanged.AddListener(ChangeBGMVolume);
-        bgmSlider.value = DataManager.SettingData.bgmVolume;
+        bgmSlider.value = AudioManager.GetVolume(VolumChannel.BGM.ToString());
         sfxSlider.onValueChanged.AddListener(ChangeSFXVolume);
-        sfxSlider.value = DataManager.SettingData.sfxVolume;
+        sfxSlider.value = AudioManager.GetVolume(VolumChannel.SFX.ToString());
 
         if (DataManager.GameData.day <= 1) // 저장된 데이터가 없을 경우(게임 데이터 세이브는 2일차부터 되므로 저장된 데이터의 날짜가 1일 이하일 경우 저장된 데이터가 없단 뜻임)
         {
@@ -35,6 +35,11 @@ public class MainCanvasManager : CanvasManager
             newGameBtn.onClick.AddListener(() => PopupFadeIn(resetWarningPopup)); // 누를 시 초기화 경고 팝업 오픈
             loadGameBtn.interactable = true; // 버튼 활성화
         }
+    }
+    public void LoadGame()
+    {
+        DataManager.RefreshGameData();
+        MoveScene((int)SCENE.Ingame);
     }
 
     public void ResetAndPlay()

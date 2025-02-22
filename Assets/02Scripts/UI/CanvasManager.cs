@@ -5,6 +5,12 @@ using UnityEngine.UI;
 public class CanvasManager : MonoBehaviour
 {
     [SerializeField]
+    private AudioClip bgm;
+    [SerializeField]
+    private AudioClip buttonSound;
+
+    [Space(5)]
+    [SerializeField]
     protected float fadeTime = 0.5f;
     [SerializeField]
     protected CanvasGroup fadeImage;
@@ -15,11 +21,17 @@ public class CanvasManager : MonoBehaviour
 
     public void ChangeBGMVolume(float newVolume)
     {
-        DataManager.SettingData.bgmVolume = Mathf.RoundToInt(newVolume);
+        AudioManager.Inst.ChangeVolume(VolumChannel.BGM, Mathf.RoundToInt(newVolume));
+        //DataManager.SettingData.bgmVolume = Mathf.RoundToInt(newVolume);
+
+        //DataManager.SaveSettingData();
     }
     public void ChangeSFXVolume(float newVolume)
     {
-        DataManager.SettingData.sfxVolume = Mathf.RoundToInt(newVolume);
+        AudioManager.Inst.ChangeVolume(VolumChannel.SFX, Mathf.RoundToInt(newVolume));
+        //DataManager.SettingData.sfxVolume = Mathf.RoundToInt(newVolume);
+
+        //DataManager.SaveSettingData();
     }
     protected void Awake()
     {
@@ -33,10 +45,13 @@ public class CanvasManager : MonoBehaviour
         {
             PopupHide(popup);
         }
+
+        SetBGM();
     }
-    protected void OnDestroy()
-    {
-        DataManager.SaveSettingData();
+    protected virtual void SetBGM()
+    { 
+        if (bgm != null)
+            AudioManager.Inst.ChangeBGM(bgm);
     }
 
     protected virtual void PopupHide(CanvasGroup popup)
@@ -44,7 +59,16 @@ public class CanvasManager : MonoBehaviour
         popup.blocksRaycasts = false;
         popup.alpha = 0f;
     }
+    protected virtual void PopupShow(CanvasGroup popup) 
+    {
+        popup.blocksRaycasts = true;
+        popup.alpha = 1f;
+    }
 
+    public void PlayBtnSound()
+    {
+        AudioManager.Inst.PlaySFX(buttonSound);
+    }
     public void PopupFadeIn(CanvasGroup group)
     {
         group.blocksRaycasts = true;

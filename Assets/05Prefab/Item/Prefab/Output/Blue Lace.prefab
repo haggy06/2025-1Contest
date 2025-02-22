@@ -186,4 +186,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentPool: {fileID: 0}
   <Active>k__BackingField: 1
+  upSound: {fileID: 8300000, guid: 3250de2eb0b0812439247d95844f1fa9, type: 3}
+  downSound: {fileID: 8300000, guid: 45d85ffccb804dc4487e93f5fc1eb68f, type: 3}
   _itemData: {fileID: 11400000, guid: 1e0e44f30ea4cd448bd28a77fe761fe2, type: 2}

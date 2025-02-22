@@ -12,8 +12,11 @@ public class ItemData : ScriptableObject
     public int itemIndex => _itemIndex;
 
     [SerializeField]
-    private Sprite _sprite;
-    public Sprite sprite => _sprite;
+    private Sprite _iconSprite;
+    public Sprite iconSprite => _iconSprite;
+    [SerializeField]
+    private Sprite _nameSprite;
+    public Sprite nameSprite => _nameSprite;
 
     [SerializeField]
     private int _price;

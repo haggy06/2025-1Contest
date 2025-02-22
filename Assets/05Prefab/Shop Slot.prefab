@@ -857,7 +857,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Active>k__BackingField: 1
-  clickSound: {fileID: 0}
+  clickSound: {fileID: 8300000, guid: d734a17029f0f674f8889ee39fcdba5e, type: 3}
   normalSprite: {fileID: 0}
   normalColor: {r: 0, g: 0, b: 0, a: 0}
   pressSprite: {fileID: 0}
@@ -865,8 +865,10 @@ MonoBehaviour:
   clickEvent:
     m_PersistentCalls:
       m_Calls: []
-  failSound: {fileID: 0}
+  col: {fileID: 137791618124050551}
+  failSound: {fileID: 8300000, guid: b724183018cf190498aacea14d459cc0, type: 3}
   soldOut: {fileID: 1541613885833932730}
+  nameSprite: {fileID: 7394972767837466757}
   icon: {fileID: 3365393987538707507}
   price: {fileID: 2411810908354335925}
   _item: {fileID: 0}

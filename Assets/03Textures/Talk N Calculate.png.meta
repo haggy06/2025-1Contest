@@ -148,8 +148,8 @@ TextureImporter:
       name: Rest_of_UI_5
       rect:
         serializedVersion: 2
-        x: 2669
-        y: 3315
+        x: 111
+        y: 2183
         width: 620
         height: 620
       alignment: 0
@@ -170,8 +170,8 @@ TextureImporter:
       name: Rest_of_UI_6
       rect:
         serializedVersion: 2
-        x: 3343
-        y: 3809
+        x: 788
+        y: 2675
         width: 126
         height: 126
       alignment: 0
@@ -214,8 +214,8 @@ TextureImporter:
       name: Bang Icon
       rect:
         serializedVersion: 2
-        x: 3347
-        y: 3759
+        x: 791
+        y: 2626
         width: 34
         height: 32
       alignment: 0
@@ -236,8 +236,8 @@ TextureImporter:
       name: Scroll Light
       rect:
         serializedVersion: 2
-        x: 1413
-        y: 1907
+        x: 2661
+        y: 2951
         width: 1123
         height: 940
       alignment: 0
@@ -364,6 +364,204 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Tutorial Pointer
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 1992
+        width: 85
+        height: 89
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73b63315bb15c3f469802475892d6ad1
+      internalID: -1128728330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title
+      rect:
+        serializedVersion: 2
+        x: 921
+        y: 2156
+        width: 1048
+        height: 442
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5134dad4d0247fc43bf9cd54c64a9f63
+      internalID: -1997326273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Game
+      rect:
+        serializedVersion: 2
+        x: 1510
+        y: 1897
+        width: 411
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40f69d4d041d7344e98c74d62848962a
+      internalID: -1210425168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Continue
+      rect:
+        serializedVersion: 2
+        x: 1510
+        y: 1717
+        width: 411
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1298aeda6d2a3c4eacb67c5f3ea50d4
+      internalID: -531805759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Setting
+      rect:
+        serializedVersion: 2
+        x: 1510
+        y: 1545
+        width: 411
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5942f2be3b3f2a846bff6fe8555b706e
+      internalID: -1403965367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Quit
+      rect:
+        serializedVersion: 2
+        x: 1510
+        y: 1358
+        width: 411
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bd19edc78574494e9582fa203b46ae8
+      internalID: -775845579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC Speech
+      rect:
+        serializedVersion: 2
+        x: 3185
+        y: 305
+        width: 448
+        height: 149
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 180854a7e58adb64abdfe2366b17f60b
+      internalID: -1396147041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mini Speech Player
+      rect:
+        serializedVersion: 2
+        x: 3184
+        y: 182
+        width: 446
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 149f99b240cee4a499501b52695fccd8
+      internalID: 315689130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title Image
+      rect:
+        serializedVersion: 2
+        x: 2070
+        y: 1275
+        width: 1926
+        height: 1085
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27da89b3c16c4264b8878bd7f3d6e72d
+      internalID: 293354734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -379,8 +577,13 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Bang Icon: -1899354896
+      Continue: -531805759
       Fade 2D: -197304822
       Fade All: 496484957
+      Game Quit: -775845579
+      Mini Speech Player: 315689130
+      NPC Speech: -1396147041
+      New Game: -1210425168
       Rest_of_UI_1: -260376548
       Rest_of_UI_10: -1658326988
       Rest_of_UI_12: 1195170457
@@ -422,9 +625,13 @@ TextureImporter:
       Rest_of_UI_9: 388970755
       Scroll Heavy: -1374976184
       Scroll Light: 1137617434
+      Setting: -1403965367
       Speech God: -55146231
       Speech Nobody: -1368030656
       Speech Player: -966311860
+      Title: -1997326273
+      Title Image: 293354734
+      Tutorial Pointer: -1128728330
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -20,7 +20,11 @@ public class ForgeManager : MonoBehaviour
     [SerializeField]
     private ParticleSystem failParticle;
     [SerializeField]
+    private AudioClip failSound;
+    [SerializeField]
     private ParticleSystem successParticle;
+    [SerializeField]
+    private AudioClip successSound;
     [SerializeField]
     private Transform cushion;
 
@@ -35,10 +39,12 @@ public class ForgeManager : MonoBehaviour
             print(i + " => " + (ItemType)i + ", " + Enum.IsDefined(typeof(ItemType), i));
         */
     }
+
     private void InteractChanged()
     {
         if (slot1.curItem != null && slot2.curItem != null)
         {
+            GameManager.Inst.TutorialCheck(TutorialState.PutItem);
             combineBtn.SetActive(true);
         }
         else
@@ -47,6 +53,8 @@ public class ForgeManager : MonoBehaviour
 
     public void CombineItem()
     {
+        GameManager.Inst.TutorialCheck(TutorialState.Combine);
+
         DragItem resultItem = failItem;
         foreach (Recipe recipe in slot1.curItem.itemData.recipes)
         {
@@ -55,6 +63,17 @@ public class ForgeManager : MonoBehaviour
 
                 resultItem = recipe.output;
             }
+        }
+
+        if (resultItem == failItem) // 실패
+        {
+            AudioManager.Inst.PlaySFX(failSound);
+            //failParticle.Play();
+        }
+        else // 성공
+        {
+            AudioManager.Inst.PlaySFX(successSound);
+            //successParticle.Play();
         }
 
         slot1.UseItem();

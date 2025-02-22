@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemType: 3
   _itemIndex: 5
-  _sprite: {fileID: 1548990908, guid: 279f2f462b7028849899a4ea03c5a8fb, type: 3}
-  _price: 300
+  _iconSprite: {fileID: 1548990908, guid: 279f2f462b7028849899a4ea03c5a8fb, type: 3}
+  _nameSprite: {fileID: 1087831266, guid: 82a61d530ca9c134986c5d6bb443e1d3, type: 3}
+  _price: 1600
   _stock: 1
   _recipes:
   - element: 12

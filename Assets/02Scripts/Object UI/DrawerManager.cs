@@ -24,9 +24,8 @@ public class DrawerManager : Singleton<DrawerManager>
     }
     */
 
-    protected new void Awake()
+    private void Start()
     {
-        base.Awake();
         for (int i = 0; i < transform.childCount; i++)
         {
             if (transform.GetChild(i).TryGetComponent<DrawerButton>(out DrawerButton btn))
@@ -35,10 +34,17 @@ public class DrawerManager : Singleton<DrawerManager>
                 Debug.LogError("DrawerButton이 없는 오브젝트가 자식으로 있음.");
         }
 
+        GameManager.Inst.Subscribe(EventType.DayStart, Init);
         Init();
     }
     public void Init()
     {
+        foreach (var btn in drawerButtons) // 모든 버튼 올리기
+            btn.Key.ButtonOFF();
+
+        GetCurDrawer().SetActive(false);
+        curDrawerIndex = 0;
+
         drawer.localPosition = Vector3.zero;
         foreach (var obj in drawerObjects)
         {
@@ -52,12 +58,14 @@ public class DrawerManager : Singleton<DrawerManager>
     private int drawerTweenID = 0;
     private void DrawerClose()
     {
+        AudioManager.Inst.PlaySFX(drawerSound);
         LeanTween.cancel(drawerTweenID);
 
         drawerTweenID = LeanTween.moveLocalY(drawer.gameObject, 0, Mathf.Abs(drawer.localPosition.y / drawerDepth) * drawerTime).setEase(drawerType).setOnComplete(() => isOpen = false).id;
     }
     private void DrawerClose(int nextDrawerIndex)
     {
+        AudioManager.Inst.PlaySFX(drawerSound);
         LeanTween.cancel(drawerTweenID);
 
         drawerTweenID = LeanTween.moveLocalY(drawer.gameObject, 0, Mathf.Abs(drawer.localPosition.y / drawerDepth) * drawerTime).setEase(drawerType).setOnComplete(() => DrawerOpen(nextDrawerIndex)).id;
@@ -65,6 +73,7 @@ public class DrawerManager : Singleton<DrawerManager>
 
     private void DrawerOpen(int drawerIndex)
     {
+        AudioManager.Inst.PlaySFX(drawerSound);
         LeanTween.cancel(drawerTweenID);
 
         isOpen = true;
@@ -83,6 +92,8 @@ public class DrawerManager : Singleton<DrawerManager>
     }
 
     [Header("Drawer Setting")]
+    [SerializeField]
+    private AudioClip drawerSound;
     [SerializeField, Tooltip("서랍을 여닫는 시간")]
     private float drawerTime = 0.5f;
     [SerializeField, Tooltip("서랍을 여닫는 방법")]

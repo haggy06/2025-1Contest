@@ -40,6 +40,8 @@ public class InventoryManager : MonoBehaviour, IItemInteractable
             newSlot.SetItem(DataManager.GameData.itemStatus[i].item, i);
             slotArr[i] = newSlot;
         }
+
+        GameManager.Inst.Subscribe(EventType.DayStart, Init);
     }
 
     private void OnEnable()
@@ -48,7 +50,31 @@ public class InventoryManager : MonoBehaviour, IItemInteractable
     }
 
     private Queue<InventorySlot> activeSlotQueue = new Queue<InventorySlot>(10); // 현재 최대 슬롯은 19칸이지만... 그거 다 찰 일이 있겠어?
-    public void Init(bool refreshNumber = true)
+    public void Init()
+    {
+        ItemCount[] itemC = DataManager.GameData.itemStatus;
+
+        activeSlotQueue.Clear();
+        for (int i = 0; i < slotArr.Length; i++)
+        {
+            int invCount = itemC[i].GetInventoryCount();
+
+            if (invCount > 0)
+            {
+                slotArr[i].gameObject.SetActive(true);
+                slotArr[i].RefreshCount();
+
+                slotArr[i].transform.localPosition = new Vector2((activeSlotQueue.Count % inventoryGridSize.x) * inventorySlotSize.x, -(activeSlotQueue.Count / inventoryGridSize.y) * inventorySlotSize.y);
+                activeSlotQueue.Enqueue(slotArr[i]);
+            }
+            else
+            {
+                slotArr[i].gameObject.SetActive(false);
+            }
+        }
+        ScrollActiveChange();
+    }
+    public void Init(bool refreshNumber)
     {
         ItemCount[] itemC = DataManager.GameData.itemStatus;
 
@@ -152,6 +178,7 @@ public class InventoryManager : MonoBehaviour, IItemInteractable
     }
     */
 
+    private int slotOutCount = 0;
     public void InstantiateItem(DragItem item)
     {
         DragItem outItem = pool.GetPoolObject<DragItem>(item);
@@ -159,6 +186,9 @@ public class InventoryManager : MonoBehaviour, IItemInteractable
 
         outItem.SetCurInteractArbitrarily(this);
         outItem.DragStart();
+
+        if (++slotOutCount == 2)
+            GameManager.Inst.TutorialCheck(TutorialState.PullOutItem);
     }
 
     public bool InteractStart(DragItem item)

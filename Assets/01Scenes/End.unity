@@ -833,6 +833,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8fcb51832f59ce48a2b691c8facdbff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bgm: {fileID: 0}
+  buttonSound: {fileID: 0}
   fadeTime: 0.5
   fadeImage: {fileID: 75362128}
   closedPopupWhenAwake: []
@@ -842,7 +844,7 @@ MonoBehaviour:
   - {fileID: -551061407, guid: bcf8f52a6a18d0d41a1d147c42e4a1f1, type: 3}
   - {fileID: -551061407, guid: bcf8f52a6a18d0d41a1d147c42e4a1f1, type: 3}
   - {fileID: -1481255599, guid: 7013d38b0ab6ac5488b581df01fdcdc1, type: 3}
-  mainMoveBtn: {fileID: 986604431}
+  mainMoveBtn: {fileID: 986604429}
 --- !u!1 &2058591989
 GameObject:
   m_ObjectHideFlags: 0

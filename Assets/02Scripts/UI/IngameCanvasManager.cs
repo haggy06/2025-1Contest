@@ -81,7 +81,6 @@ public class IngameCanvasManager : CanvasManager
     private void DayStart()
     {
         PopupHide(order);
-        PopupFadeOut(fadeImage);
 
         startMoney = DataManager.GameData.money;
         startDanger = DataManager.GameData.danger;
@@ -181,6 +180,7 @@ public class IngameCanvasManager : CanvasManager
     }
     private void DayMove()
     {
+        PopupFadeOut(fadeImage);
         GameManager.Inst.DayStartInvoke();
     }
 

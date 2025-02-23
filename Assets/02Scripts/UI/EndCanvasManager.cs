@@ -10,13 +10,14 @@ public class EndCanvasManager : CanvasManager
 
     [Space(5)]
     [SerializeField]
-    private Button mainMoveBtn;
+    private GameObject mainMoveBtn;
     protected new void Awake()
     {
         base.Awake();
-        mainMoveBtn.interactable = false;
+        mainMoveBtn.SetActive(false);
 
         int spriteIndex;
+        print(GameManager.Inst.endingType);
         switch (GameManager.Inst.endingType)
         {
             case StoryTalkIndex.TrapEnd:
@@ -45,6 +46,6 @@ public class EndCanvasManager : CanvasManager
     private void MainMove()
     {
         DataManager.ResetGameData();
-        mainMoveBtn.interactable = true;
+        mainMoveBtn.SetActive(true);
     }
 }

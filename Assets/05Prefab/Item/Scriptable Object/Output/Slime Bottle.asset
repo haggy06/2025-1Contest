@@ -16,6 +16,6 @@ MonoBehaviour:
   _itemIndex: 17
   _iconSprite: {fileID: 1623674978, guid: 279f2f462b7028849899a4ea03c5a8fb, type: 3}
   _nameSprite: {fileID: 1055445930, guid: 82a61d530ca9c134986c5d6bb443e1d3, type: 3}
-  _price: 3400
+  _price: 5400
   _stock: 0
   _recipes: []

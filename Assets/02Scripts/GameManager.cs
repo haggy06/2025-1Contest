@@ -15,6 +15,7 @@ public class GameManager : Singleton<GameManager>
 
         if (newScene.buildIndex <= 1)
         {
+            DataManager.RefreshGameData();
             for (int i = 0; i < PlayEventArr.Length; i++) // 이벤트 초기화
             {
                 PlayEventArr[i] = null;
@@ -22,6 +23,8 @@ public class GameManager : Singleton<GameManager>
         }
         else if (newScene.buildIndex == 2)
         {
+            spyInformed = false;
+
             RerollNPC();
             DayStartInvoke();
         }

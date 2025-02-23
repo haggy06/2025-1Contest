@@ -242,7 +242,7 @@ public class TalkManager : Singleton<TalkManager>
     }
     private void Clue()
     {
-        if (!DataManager.GameData.DangerBySpy() && Random.Range(0, 10) < 3) // ½ºÆÄÀÌ°¡ À§ÇùÀûÀÏ ¶§ 30ÆÛ È®·ü·Î ´Ü¼­ ÁÜ(or ±î¸ÔÀ½)
+        if (DataManager.GameData.DangerBySpy() && Random.Range(0, 10) < 3) // ½ºÆÄÀÌ°¡ À§ÇùÀûÀÏ ¶§ 30ÆÛ È®·ü·Î ´Ü¼­ ÁÜ(or ±î¸ÔÀ½)
         {
             SpyWarning_NPC();
         }
@@ -312,7 +312,7 @@ public class TalkManager : Singleton<TalkManager>
     }
     private void KillSpy()
     {
-        DataManager.GameData.money -= 5000;
+        MoneyAdd();
         IngameCanvasManager.RefreshMoney();
 
         DataManager.GameData.isSpyDead = true;

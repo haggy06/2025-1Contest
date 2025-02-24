@@ -366,7 +366,7 @@ MonoBehaviour:
     face: 0
     text: "\uC774 \uC77C\uC744 \uC2DC\uC791\uD55C\uC9C0 \uC5B4\uC5B8 \uC77C\uC8FC\uC77C\uC774
       \uB2E4 \uB418\uC5B4\uAC04\uB2E4."
-    methodName: ScreenFadeIn
+    methodName: ScreenHide
     parameter: 0
     startInvoke: 1
   - next: 1
@@ -384,10 +384,46 @@ MonoBehaviour:
     methodName: 
     parameter: 0
     startInvoke: 0
-  - next: 0
+  - next: 1
     speaker: 2
     face: 4
-    text: "\uACFC\uC5F0 \uADF8\uB7F4\uAE4C\uC694\u2026?"
+    text: "\uC815\uB9D0 \uADF8\uB7F4\uC9C0\uB3C4 \uBAA8\uB974\uACA0\uB124\uC694!"
+    methodName: 
+    parameter: 0
+    startInvoke: 0
+  - next: 1
+    speaker: 0
+    face: 0
+    text: "??? : \uB2F9\uC2E0\uC774 \uC774 \uC554\uC2DC\uC7A5 \uC8FC\uC778\uC774\uC694?"
+    methodName: 
+    parameter: 0
+    startInvoke: 0
+  - next: 1
+    speaker: 1
+    face: 0
+    text: "\uB124! \uBB34\uC5C7\uC744 \uCC3E\uC73C\uC2DC\uB098\uC694 \uC190\uB2D8?"
+    methodName: 
+    parameter: 0
+    startInvoke: 0
+  - next: 1
+    speaker: 0
+    face: 0
+    text: "??? : \uC800\uD76C\uC640 \uAC19\uC774 \uAC00 \uC8FC\uC154\uC57C\uACA0\uC2B5\uB2C8\uB2E4."
+    methodName: 
+    parameter: 0
+    startInvoke: 0
+  - next: 1
+    speaker: 1
+    face: 3
+    text: "?! \uC7A0\uAE50! \uC774\uAC70 \uB193\uC9C0 \uBABB\uD574?!!"
+    methodName: 
+    parameter: 0
+    startInvoke: 0
+  - next: 0
+    speaker: 1
+    face: 3
+    text: "\uC774\uBD10 \uC2E0! \uBCC4 \uC77C \uC5C6\uC744 \uAC70\uB77C\uACE0 \uD588\uC796\uC544!!!
+      \uC5B4\uB5BB\uAC8C\uB4E0 \uD574\uBD10! "
     methodName: MoveScene
     parameter: 3
     startInvoke: 0
@@ -426,7 +462,7 @@ MonoBehaviour:
     face: 0
     text: "\uC774 \uC77C\uC744 \uC2DC\uC791\uD55C\uC9C0 \uC5B4\uC5B8 \uC77C\uC8FC\uC77C\uC774
       \uB2E4 \uB418\uC5B4\uAC04\uB2E4."
-    methodName: ScreenFadeIn
+    methodName: ScreenHide
     parameter: 0
     startInvoke: 1
   - next: 1
@@ -479,7 +515,7 @@ MonoBehaviour:
     face: 0
     text: "\uC774 \uC77C\uC744 \uC2DC\uC791\uD55C\uC9C0 \uC5B4\uC5B8 \uC77C\uC8FC\uC77C\uC774
       \uB2E4 \uB418\uC5B4\uAC04\uB2E4."
-    methodName: ScreenFadeIn
+    methodName: ScreenHide
     parameter: 0
     startInvoke: 1
   - next: 1
@@ -699,7 +735,7 @@ MonoBehaviour:
   - next: 0
     speaker: 7
     face: 0
-    text: "5000 \uACE8\uB4DC\uB9CC \uC8FC\uC2DC\uBA74 \uD754\uC801\uB3C4 \uC5C6\uC774
+    text: "8000 \uACE8\uB4DC\uB9CC \uC8FC\uC2DC\uBA74 \uD754\uC801\uB3C4 \uC5C6\uC774
       \uCC98\uB9AC\uD574 \uB4DC\uB9AC\uC8E0\u2026"
     methodName: Request
     parameter: 0
@@ -753,8 +789,8 @@ MonoBehaviour:
     face: 0
     text: "\u2026\uC88B\uC2B5\uB2C8\uB2E4\u2026 \uC2E0\uBB38\uC5D0\uC11C \uBD59\uC8E0."
     methodName: KillSpy
-    parameter: -5000
-    startInvoke: 0
+    parameter: -8000
+    startInvoke: 1
   InfoTalk:
   - next: 0
     speaker: 3

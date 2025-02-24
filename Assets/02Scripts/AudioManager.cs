@@ -44,7 +44,7 @@ public class AudioManager : Singleton<AudioManager>
     {
         if (!PlayerPrefs.HasKey(channelName)) // 키가 없었을 경우 10으로 초기값 지정
         {
-            PlayerPrefs.SetInt(channelName, 10);
+            PlayerPrefs.SetInt(channelName, 7);
             return 10;
         }
         else
@@ -72,29 +72,67 @@ public class AudioManager : Singleton<AudioManager>
         }
     }
 
-    public void ChangeBGM(AudioClip bgm)
+    [SerializeField]
+    private AudioClip nextBGM = null;
+    public void ChangeBGM(AudioClip bgm, bool useFade = true)
     {
+        print("BGM Change");
         if (bgmSpeacker.clip == bgm) // BGM이 같을 경우 return
             return;
 
-        bgmSpeacker.Pause();
-
-        bgmSpeacker.clip = bgm;
-        bgmSpeacker.Play();
-
-        StopCoroutine("VolumeCor");
-        StartCoroutine("VolumeCor");
+        if (useFade)
+        {
+            if (bgmSpeacker == null) // 현재 BGM이 없었을 경우
+            {
+                BgmChangeAndPlay(bgm);
+                StartCoroutine("BGM_FadeIn");
+            }
+            else
+            {
+                nextBGM = bgm;
+                StartCoroutine("BGM_FadeOut");
+            }
+        }
+        else
+        {
+            BgmChangeAndPlay(bgm);
+        }
     }
-    private IEnumerator VolumeCor()
+    private IEnumerator BGM_FadeOut()
     {
+        print("BGM FadeOut");
+        float progress = 1f;
+        while (progress > 0.5f)
+        {
+            progress -= Time.deltaTime;
+            bgmSpeacker.volume = progress;
+
+            yield return null;
+        }
+
+        StartCoroutine("BGM_FadeIn");
+    }
+    private IEnumerator BGM_FadeIn()
+    {
+        BgmChangeAndPlay(nextBGM);
+
         float progress = 0.5f;
-        while (progress < 1f) 
+        while (progress < 1f)
         {
             progress += Time.deltaTime;
             bgmSpeacker.volume = progress;
 
             yield return null;
         }
+    }
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private void BgmChangeAndPlay(AudioClip clip)
+    {
+        bgmSpeacker.Pause();
+
+        bgmSpeacker.clip = clip;
+        bgmSpeacker.Play();
+        nextBGM = null;
     }
 
     public void PlaySFX(AudioClip clip, float volume = 1f)

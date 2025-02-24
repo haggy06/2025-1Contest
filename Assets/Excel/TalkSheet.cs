@@ -48,9 +48,9 @@ public enum StoryTalkIndex
     Tutorial = 20,
 
     TrapEnd = 46,
-    BankruptcyEnd = 50,
-    NormalEnd = 54,
-    HappyEnd = 61,
+    BankruptcyEnd = 55,
+    NormalEnd = 59,
+    HappyEnd = 66,
 }
 
 public enum NPCTalkIndex

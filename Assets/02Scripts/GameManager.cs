@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : Singleton<GameManager>
 {
     public static readonly float dangerMaginot = 0.775f;
-    public const int happyEndMoney = 25000;
+    public const int happyEndMoney = 30000;
 
     protected override void SceneChanged(Scene replacedScene, Scene newScene)
     {
@@ -193,7 +193,7 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    private bool spyInformed = false;
+    public bool spyInformed = false;
     public void InfoCrystal()
     {
         if (DataManager.GameData.money >= 800) // 돈이 충분할 경우
@@ -212,7 +212,6 @@ public class GameManager : Singleton<GameManager>
 
         if (DataManager.GameData.day == 3 && !spyInformed) // 스파이 온 다음날의 경우 & 아직 스파이 얘기를 못 들었을 경우
         {
-            spyInformed = true;
             TalkManager.Inst.TalkStart(1, SheetType.Info);
         }
         else if (DataManager.GameData.money <= 1000 && !DataManager.GameData.getFunded) // 파산 직전일 시
@@ -220,7 +219,7 @@ public class GameManager : Singleton<GameManager>
             DataManager.GameData.getFunded = true;
             TalkManager.Inst.TalkStart(8, SheetType.Info);
         }        
-        else if (DataManager.GameData.todayBuyCount > 5) // 재고 5개 이상 소모 시(매일 최대 13개)
+        else if (DataManager.GameData.todayBuyCount >= 5) // 재고 5개 이상 소모 시(매일 최대 13개)
         {
             TalkManager.Inst.TalkStart(6, SheetType.Info);
         }

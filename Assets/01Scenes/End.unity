@@ -842,7 +842,7 @@ MonoBehaviour:
   endScenes:
   - {fileID: 1857442924, guid: 80a893be50e7ab44ca3771f7fae84dfc, type: 3}
   - {fileID: -551061407, guid: bcf8f52a6a18d0d41a1d147c42e4a1f1, type: 3}
-  - {fileID: -551061407, guid: bcf8f52a6a18d0d41a1d147c42e4a1f1, type: 3}
+  - {fileID: 1735212016, guid: 6da647c52e845354eb7116270fd50f37, type: 3}
   - {fileID: -1481255599, guid: 7013d38b0ab6ac5488b581df01fdcdc1, type: 3}
   mainMoveBtn: {fileID: 986604429}
 --- !u!1 &2058591989

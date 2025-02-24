@@ -39,7 +39,7 @@ public static class DataManager
         {
             _gameData.itemStatus[i] = new ItemCount(_itemDataList.dataList[i]);
         }
-        _gameData.spyNPC.RandomFace();
+        _gameData.spyNPC.RandomFace(true);
         _gameData.spyNPC.RandomOrder();
         _gameData.spyNPC.npcType = NPCType.Spy;
 

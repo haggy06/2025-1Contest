@@ -145,7 +145,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rest_of_UI_5
+      name: Inventory
       rect:
         serializedVersion: 2
         x: 111
@@ -167,7 +167,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rest_of_UI_6
+      name: Slot
       rect:
         serializedVersion: 2
         x: 788
@@ -562,6 +562,50 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: No Btn
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 1808
+        width: 177
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e72e556be40aef48a5cb44d3807debb
+      internalID: -2028683016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Yes Btn
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 1808
+        width: 177
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ba32fc204454b24e8090d0dff291c1a
+      internalID: -1862185102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -581,9 +625,11 @@ TextureImporter:
       Fade 2D: -197304822
       Fade All: 496484957
       Game Quit: -775845579
+      Inventory: -634409860
       Mini Speech Player: 315689130
       NPC Speech: -1396147041
       New Game: -1210425168
+      No Btn: -2028683016
       Rest_of_UI_1: -260376548
       Rest_of_UI_10: -1658326988
       Rest_of_UI_12: 1195170457
@@ -619,19 +665,19 @@ TextureImporter:
       Rest_of_UI_40: 1125221473
       Rest_of_UI_41: 771363321
       Rest_of_UI_46: -1798408930
-      Rest_of_UI_5: -634409860
-      Rest_of_UI_6: -1945050149
       Rest_of_UI_7: 2016992742
       Rest_of_UI_9: 388970755
       Scroll Heavy: -1374976184
       Scroll Light: 1137617434
       Setting: -1403965367
+      Slot: -1945050149
       Speech God: -55146231
       Speech Nobody: -1368030656
       Speech Player: -966311860
       Title: -1997326273
       Title Image: 293354734
       Tutorial Pointer: -1128728330
+      Yes Btn: -1862185102
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

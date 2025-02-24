@@ -6,8 +6,6 @@ public class CanvasManager : MonoBehaviour
 {
     [SerializeField]
     private AudioClip bgm;
-    [SerializeField]
-    private AudioClip buttonSound;
 
     [Space(5)]
     [SerializeField]
@@ -51,7 +49,7 @@ public class CanvasManager : MonoBehaviour
     protected virtual void SetBGM()
     { 
         if (bgm != null)
-            AudioManager.Inst.ChangeBGM(bgm);
+            AudioManager.Inst.ChangeBGM(bgm, false);
     }
 
     protected virtual void PopupHide(CanvasGroup popup)
@@ -65,9 +63,9 @@ public class CanvasManager : MonoBehaviour
         popup.alpha = 1f;
     }
 
-    public void PlayBtnSound()
+    public void PlaySound(AudioClip audioClip)
     {
-        AudioManager.Inst.PlaySFX(buttonSound);
+        AudioManager.Inst.PlaySFX(audioClip);
     }
     public void PopupFadeIn(CanvasGroup group)
     {

@@ -68,12 +68,12 @@ public class ForgeManager : MonoBehaviour
         if (resultItem == failItem) // 실패
         {
             AudioManager.Inst.PlaySFX(failSound);
-            //failParticle.Play();
+            failParticle.Play();
         }
         else // 성공
         {
             AudioManager.Inst.PlaySFX(successSound);
-            //successParticle.Play();
+            successParticle.Play();
         }
 
         slot1.UseItem();

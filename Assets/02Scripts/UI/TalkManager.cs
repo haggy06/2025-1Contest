@@ -40,6 +40,8 @@ public class TalkManager : Singleton<TalkManager>
     [Header("Spy")]
     [SerializeField]
     private string[] spyExplain;
+    [SerializeField, Range(0, 10)]
+    private int spyWaningPercent = 3;
 
     private int curIndex = 0;
     private TalkSheet _curTalk;
@@ -242,7 +244,7 @@ public class TalkManager : Singleton<TalkManager>
     }
     private void Clue()
     {
-        if (DataManager.GameData.DangerBySpy() && Random.Range(0, 10) < 3) // 스파이가 위협적일 때 30퍼 확률로 단서 줌(or 까먹음)
+        if (DataManager.GameData.DangerBySpy() && Random.Range(0, 10) < spyWaningPercent) // 스파이가 위협적일 때 확률적으로 단서 줌(or 까먹음)
         {
             SpyWarning_NPC();
         }
@@ -266,7 +268,8 @@ public class TalkManager : Singleton<TalkManager>
         newTalk.startInvoke = originalTalk.startInvoke;
         #endregion
 
-        DataManager.GameData.isSpyWkown = true;
+        GameManager.Inst.spyInformed = true;
+        DataManager.GameData.isSpyKnown = true;
         TalkStart(newTalk, _curTalk.parameter);
     }
     private void SpyWarning_NPC()
@@ -284,7 +287,8 @@ public class TalkManager : Singleton<TalkManager>
         newTalk.startInvoke = originalTalk.startInvoke;
         #endregion
 
-        DataManager.GameData.isSpyWkown = true;
+        GameManager.Inst.spyInformed = true;
+        DataManager.GameData.isSpyKnown = true;
         TalkStart(newTalk, _curTalk.parameter);
     }
 
@@ -292,11 +296,11 @@ public class TalkManager : Singleton<TalkManager>
     {
         if (DataManager.GameData.DangerBySpy()) // 스파이 땜시 위험할 경우
         {
-            if (!DataManager.GameData.isSpyWkown) // 스파이를 모르고 있거나 주문을 들어줬을 경우
+            if (!DataManager.GameData.isSpyKnown) // 스파이를 모르고 있거나 주문을 들어줬을 경우
             {
                 TalkStart((int)NPCTalkIndex.Spy_UnknownSpy, SheetType.NPC);
             }
-            else if (DataManager.GameData.money < 5000) // 돈이 모자랄 경우
+            else if (DataManager.GameData.money < 8000) // 돈이 모자랄 경우
             {
                 TalkStart((int)NPCTalkIndex.Spy_LowMoney, SheetType.NPC);
             }
@@ -315,6 +319,9 @@ public class TalkManager : Singleton<TalkManager>
         MoneyAdd();
         IngameCanvasManager.RefreshMoney();
 
+        DataManager.GameData.danger = Mathf.Clamp(DataManager.GameData.danger - 0.3f, 0f, 1f);
+        IngameCanvasManager.RefreshDanger();
+
         DataManager.GameData.isSpyDead = true;
     }
 
@@ -325,6 +332,7 @@ public class TalkManager : Singleton<TalkManager>
 
     private void MoneyAdd()
     {
+        print("MoneyAdd : " + _curTalk.parameter);
         DataManager.GameData.money += _curTalk.parameter;
         IngameCanvasManager.RefreshMoney();
     }

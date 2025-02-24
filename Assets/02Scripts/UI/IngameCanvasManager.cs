@@ -34,6 +34,8 @@ public class IngameCanvasManager : CanvasManager
     [SerializeField]
     private CanvasGroup receipt;
     [SerializeField]
+    private AudioClip receiptSound;
+    [SerializeField]
     private TextMeshProUGUI dayEndText;
     [SerializeField]
     private TextMeshProUGUI profitText;
@@ -53,10 +55,14 @@ public class IngameCanvasManager : CanvasManager
     [Header("More Ects")]
     [SerializeField]
     private Sprite[] newsArr;
+    [SerializeField]
+    private DrawerButton infoBtn;
 
     protected new void Awake()
     {
         base.Awake();
+
+        infoBtn.BangActive(DataManager.GameData.day == 3); // 3일차엔 수정구 ! 띄우기
 
         bgmSlider.onValueChanged.AddListener(ChangeBGMVolume);
         bgmSlider.value = AudioManager.GetVolume(VolumChannel.BGM.ToString());
@@ -89,20 +95,22 @@ public class IngameCanvasManager : CanvasManager
     }
     private void ReceiptOpen()
     {
+        dayEndText.text = DataManager.GameData.day + "일차 완료!";
+
+
+        profitText.text = "순 이익 : ";
         int profit = DataManager.GameData.money - startMoney;
         if (profit >= 0)
-        {
-            profitText.text = "+" + MyCalculator.AddComma(profit);
-            profitText.color = Color.green;
-        }
-        else
-        {
-            profitText.text = MyCalculator.AddComma(profit);
-            profitText.color = Color.red;
-        }
+            profitText.text += "+";
+        profitText.text += MyCalculator.AddComma(profit);
 
-        dayEndText.text = DataManager.GameData.day + "일차 완료!";
-        dangerText.text = Mathf.RoundToInt((DataManager.GameData.danger - startDanger) * 100f) + "%";
+
+        dangerText.text = "위험도 : ";
+        int danger = Mathf.RoundToInt((DataManager.GameData.danger - startDanger) * 100f);
+        if (danger >= 0)
+            dangerText.text += "+";
+        dangerText.text += danger;
+        dangerText.text += "%";
 
         int newsIndex = (int)NewsType.None;
         switch (DataManager.GameData.day)
@@ -112,18 +120,55 @@ public class IngameCanvasManager : CanvasManager
                 break;
 
             case 2:
-                if (DataManager.GameData.isSpyOwnered) // 스파이 주문을 들어줬었을 경우
-                    newsIndex = (int)NewsType.SpyAppear;
+                newsIndex = (int)NewsType.DangerSpy;
                 break;
             
             case 3:
-                if (DataManager.GameData.isSpyDead)
-                    newsIndex = (int)NewsType.SpyDead;
+                if (DataManager.GameData.isSpyOwnered && DataManager.GameData.isSpyKnown)
+                {
+                    if (DataManager.GameData.isSpyDead)
+                    {
+                        if (!DataManager.GameData.spyDeadNews)
+                        {
+                            DataManager.GameData.spyDeadNews = true;
+
+                            newsIndex = (int)NewsType.SpyDead;
+                        }
+                    }
+                    else
+                    {
+                        if (!DataManager.GameData.spyAppearNews)
+                        {
+                            DataManager.GameData.spyAppearNews = true;
+
+                            newsIndex = (int)NewsType.SpyAppear;
+                        }
+                    }
+                }
                 break;
 
             case 4:
-                if (DataManager.GameData.DangerBySpy())
-                    newsIndex = (int)NewsType.DangerSpy;
+                if (DataManager.GameData.isSpyOwnered && DataManager.GameData.isSpyKnown)
+                {
+                    if (DataManager.GameData.isSpyDead)
+                    {
+                        if (!DataManager.GameData.spyDeadNews)
+                        {
+                            DataManager.GameData.spyDeadNews = true;
+
+                            newsIndex = (int)NewsType.SpyDead;
+                        }
+                    }
+                    else
+                    {
+                        if (!DataManager.GameData.spyAppearNews)
+                        {
+                            DataManager.GameData.spyAppearNews = true;
+
+                            newsIndex = (int)NewsType.SpyAppear;
+                        }
+                    }
+                }
                 break;
 
             case 5:
@@ -133,6 +178,8 @@ public class IngameCanvasManager : CanvasManager
         MyCalculator.ChangeUISprite(newsImage, newsArr[newsIndex]);
 
         Blind(true);
+
+        AudioManager.Inst.PlaySFX(receiptSound);
         PopupFadeIn(receipt);
     }
     public void Blind(bool isOn, bool instantFade = false)
@@ -176,7 +223,8 @@ public class IngameCanvasManager : CanvasManager
         PopupFadeIn(fadeImage);
         PopupFadeOut(receipt);
 
-        Invoke("DayMove", fadeTime);
+        infoBtn.BangActive(DataManager.GameData.day == 3); // 3일차엔 수정구 ! 띄우기
+        Invoke("DayMove", fadeTime + 1f);
     }
     private void DayMove()
     {

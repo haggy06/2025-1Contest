@@ -12,9 +12,20 @@ public class NPC
     public ItemData orderItem => DataManager.itemDataList.dataList[_orderItemIndex].itemData;
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public void RandomFace()
+    public void RandomFace(bool ignoreSpyFace = false)
     {
-        faceIndex = UnityEngine.Random.Range((int)NPCType.Normal, NPC_Number);
+        if (ignoreSpyFace) // 스파이와 얼굴이 같아도 될 경우(or 스파이 얼굴 정하는 경우)
+        {
+            faceIndex = UnityEngine.Random.Range((int)NPCType.Normal, NPC_Number);
+        }
+        else
+        {
+            do
+            {
+                faceIndex = UnityEngine.Random.Range((int)NPCType.Normal, NPC_Number);
+            } 
+            while (faceIndex == DataManager.GameData.spyNPC.faceIndex);
+        }
     }
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public void RandomOrder()

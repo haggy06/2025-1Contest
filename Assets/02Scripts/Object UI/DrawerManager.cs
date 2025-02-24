@@ -44,8 +44,11 @@ public class DrawerManager : Singleton<DrawerManager>
 
         GetCurDrawer().SetActive(false);
         curDrawerIndex = 0;
+        isOpen = false;
 
+        LeanTween.cancel(drawerTweenID);
         drawer.localPosition = Vector3.zero;
+
         foreach (var obj in drawerObjects)
         {
             obj.SetActive(false);

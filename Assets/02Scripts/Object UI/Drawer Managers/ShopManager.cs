@@ -3,6 +3,8 @@ using UnityEngine;
 public class ShopManager : MonoBehaviour
 {
     [SerializeField]
+    private DrawerButton shopBtn;
+    [SerializeField]
     private ObjectPool pool;
     [SerializeField]
     private ShopSlot[] slotArr;
@@ -40,6 +42,7 @@ public class ShopManager : MonoBehaviour
     */
     public void Init()
     {
+        shopBtn.BangActive(true);
         DataManager.GameData.todayBuyCount = 0;
 
         slotScroll.transform.localPosition = Vector3.zero;

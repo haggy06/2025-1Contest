@@ -23,6 +23,12 @@ public class QuestManager : MonoBehaviour
     [SerializeField]
     private AudioClip npcSound;
     [SerializeField]
+    private AudioClip questSuccess;
+    [SerializeField]
+    private AudioClip questFail;
+
+    [Space(5)]
+    [SerializeField]
     private Animator npcs;
     [SerializeField]
     private Animator order;
@@ -115,10 +121,12 @@ public class QuestManager : MonoBehaviour
             if (GameManager.Inst.Calculate())
             {
                 talk.TalkStart(talkIndex + 1, SheetType.NPC);
+                AudioManager.Inst.PlaySFX(questSuccess);
             }
             else
             {
                 talk.TalkStart(talkIndex + 2, SheetType.NPC);
+                AudioManager.Inst.PlaySFX(questFail);
             }
         }
     }

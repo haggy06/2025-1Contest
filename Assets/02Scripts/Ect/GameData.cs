@@ -14,10 +14,13 @@ public class GameData
     public NPC spyNPC = new NPC();
     public bool isSpyOwnered = false;
     public bool isSpyDead = false;
-    public bool isSpyWkown = false;
+    public bool isSpyKnown = false;
 
     public bool getFunded = false;
     public int todayBuyCount = 0;
+
+    public bool spyDeadNews = false;
+    public bool spyAppearNews = false;
 
     public ItemCount[] itemStatus = new ItemCount[19];
 

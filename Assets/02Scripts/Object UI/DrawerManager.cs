@@ -107,8 +107,7 @@ public class DrawerManager : Singleton<DrawerManager>
     {
         if (drawerButtons.TryGetValue(button, out int buttonIndex))
         {
-            if (!GameManager.Inst.CanClickDrawer(buttonIndex))
-                return;
+            GameManager.Inst.CanClickDrawer(buttonIndex);
 
             foreach (var btn in drawerButtons) // 지금 눌린 버튼을 제외한 모든 버튼 올리기
             {

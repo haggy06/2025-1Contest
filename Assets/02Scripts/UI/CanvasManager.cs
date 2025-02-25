@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -67,15 +68,35 @@ public class CanvasManager : MonoBehaviour
     {
         AudioManager.Inst.PlaySFX(audioClip);
     }
+
+    private Dictionary<CanvasGroup, int> popupIDs = new Dictionary<CanvasGroup, int>();
     public void PopupFadeIn(CanvasGroup group)
     {
         group.blocksRaycasts = true;
-        LeanTween.alphaCanvas(group, 1f, fadeTime * (1f - group.alpha));
+
+        if (popupIDs.ContainsKey(group))
+        {
+            LeanTween.cancel(popupIDs[group]);
+            popupIDs[group] = LeanTween.alphaCanvas(group, 1f, fadeTime * (1f - group.alpha)).id;
+        }
+        else
+        {
+            popupIDs.Add(group, LeanTween.alphaCanvas(group, 1f, fadeTime * (1f - group.alpha)).id);
+        }
     }
     public void PopupFadeOut(CanvasGroup group)
     {
         group.blocksRaycasts = false;
-        LeanTween.alphaCanvas(group, 0f, fadeTime * group.alpha);
+
+        if (popupIDs.ContainsKey(group))
+        {
+            LeanTween.cancel(popupIDs[group]);
+            popupIDs[group] = LeanTween.alphaCanvas(group, 0f, fadeTime * group.alpha).id;
+        }
+        else
+        {
+            popupIDs.Add(group, LeanTween.alphaCanvas(group, 0f, fadeTime * group.alpha).id);
+        }
     }
 
     public void MoveScene(int sceneIndex)

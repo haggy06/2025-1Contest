@@ -95,6 +95,8 @@ public class IngameCanvasManager : CanvasManager
     }
     private void ReceiptOpen()
     {
+        print("ReceiptOpen");
+
         dayEndText.text = DataManager.GameData.day + "일차 완료!";
 
 
@@ -219,6 +221,7 @@ public class IngameCanvasManager : CanvasManager
 
     public void MoveToNextDay()
     {
+        print("MoveToNextDay");
         Blind(false);
         PopupFadeIn(fadeImage);
         PopupFadeOut(receipt);
